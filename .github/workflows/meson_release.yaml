@@ -50,7 +50,7 @@ jobs:
             pipx install ninja
       - name: default - setup the project
         if: ${{ !matrix.useMsys }}
-        run: meson setup ${{ matrix.setupExtras }} -Ddefault_library=${{ matrix.buildType }} build
+        run: meson setup -Dcpp_std=c++17 ${{ matrix.setupExtras }} -Ddefault_library=${{ matrix.buildType }} build
       - name: default - compile the project
         if: ${{ !matrix.useMsys }}
         run: meson compile -C build
@@ -71,7 +71,7 @@ jobs:
       - name: msys2 - setup the project
         if: ${{ matrix.useMsys }}
         shell: msys2 {0}
-        run: meson setup ${{ matrix.setupExtras }} -Ddefault_library=${{ matrix.buildType }} build
+        run: meson setup -Dcpp_std=c++17 ${{ matrix.setupExtras }} -Ddefault_library=${{ matrix.buildType }} build
       - name: msys2 - compile the project
         if: ${{ matrix.useMsys }}
         shell: msys2 {0}

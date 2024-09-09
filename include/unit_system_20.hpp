@@ -2515,861 +2515,861 @@ namespace sakurajin {
 
         // forward declare all units
 
-        UNIT_SYSTEM_EXPORT_MACRO typedef time_si_t<UNIT_SYSTEM_DEFAULT_TYPE> time_si;
+        typedef time_si_t<UNIT_SYSTEM_DEFAULT_TYPE> time_si;
 
-        UNIT_SYSTEM_EXPORT_MACRO typedef length_t<UNIT_SYSTEM_DEFAULT_TYPE> length;
+        typedef length_t<UNIT_SYSTEM_DEFAULT_TYPE> length;
 
-        UNIT_SYSTEM_EXPORT_MACRO typedef mass_t<UNIT_SYSTEM_DEFAULT_TYPE> mass;
+        typedef mass_t<UNIT_SYSTEM_DEFAULT_TYPE> mass;
 
-        UNIT_SYSTEM_EXPORT_MACRO typedef temperature_t<UNIT_SYSTEM_DEFAULT_TYPE> temperature;
+        typedef temperature_t<UNIT_SYSTEM_DEFAULT_TYPE> temperature;
 
-        UNIT_SYSTEM_EXPORT_MACRO typedef amount_t<UNIT_SYSTEM_DEFAULT_TYPE> amount;
+        typedef amount_t<UNIT_SYSTEM_DEFAULT_TYPE> amount;
 
-        UNIT_SYSTEM_EXPORT_MACRO typedef electric_current_t<UNIT_SYSTEM_DEFAULT_TYPE> electric_current;
+        typedef electric_current_t<UNIT_SYSTEM_DEFAULT_TYPE> electric_current;
 
-        UNIT_SYSTEM_EXPORT_MACRO typedef luminous_intensity_t<UNIT_SYSTEM_DEFAULT_TYPE> luminous_intensity;
+        typedef luminous_intensity_t<UNIT_SYSTEM_DEFAULT_TYPE> luminous_intensity;
 
-        UNIT_SYSTEM_EXPORT_MACRO typedef energy_t<UNIT_SYSTEM_DEFAULT_TYPE> energy;
+        typedef energy_t<UNIT_SYSTEM_DEFAULT_TYPE> energy;
 
-        UNIT_SYSTEM_EXPORT_MACRO typedef power_t<UNIT_SYSTEM_DEFAULT_TYPE> power;
+        typedef power_t<UNIT_SYSTEM_DEFAULT_TYPE> power;
 
-        UNIT_SYSTEM_EXPORT_MACRO typedef speed_t<UNIT_SYSTEM_DEFAULT_TYPE> speed;
+        typedef speed_t<UNIT_SYSTEM_DEFAULT_TYPE> speed;
 
-        UNIT_SYSTEM_EXPORT_MACRO typedef acceleration_t<UNIT_SYSTEM_DEFAULT_TYPE> acceleration;
+        typedef acceleration_t<UNIT_SYSTEM_DEFAULT_TYPE> acceleration;
 
-        UNIT_SYSTEM_EXPORT_MACRO typedef area_t<UNIT_SYSTEM_DEFAULT_TYPE> area;
+        typedef area_t<UNIT_SYSTEM_DEFAULT_TYPE> area;
 
-        UNIT_SYSTEM_EXPORT_MACRO typedef force_t<UNIT_SYSTEM_DEFAULT_TYPE> force;
+        typedef force_t<UNIT_SYSTEM_DEFAULT_TYPE> force;
 
-        UNIT_SYSTEM_EXPORT_MACRO typedef momentum_t<UNIT_SYSTEM_DEFAULT_TYPE> momentum;
+        typedef momentum_t<UNIT_SYSTEM_DEFAULT_TYPE> momentum;
 
 
         // define all literals
         inline namespace literals {
 
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _a(long double val) {
+            inline auto operator"" _a(long double val) {
                 return sakurajin::unit_system::time_si{val, 31536000000.0, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _a(unsigned long long int val) {
+            inline auto operator"" _a(unsigned long long int val) {
                 return sakurajin::unit_system::time_si{static_cast<long double>(val), 31536000000.0, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _d(long double val) {
+            inline auto operator"" _d(long double val) {
                 return sakurajin::unit_system::time_si{val, 86400000.0, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _d(unsigned long long int val) {
+            inline auto operator"" _d(unsigned long long int val) {
                 return sakurajin::unit_system::time_si{static_cast<long double>(val), 86400000.0, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _h(long double val) {
+            inline auto operator"" _h(long double val) {
                 return sakurajin::unit_system::time_si{val, 3600.0, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _h(unsigned long long int val) {
+            inline auto operator"" _h(unsigned long long int val) {
                 return sakurajin::unit_system::time_si{static_cast<long double>(val), 3600.0, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _minute(long double val) {
+            inline auto operator"" _minute(long double val) {
                 return sakurajin::unit_system::time_si{val, 60.0, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _minute(unsigned long long int val) {
+            inline auto operator"" _minute(unsigned long long int val) {
                 return sakurajin::unit_system::time_si{static_cast<long double>(val), 60.0, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _s(long double val) {
+            inline auto operator"" _s(long double val) {
                 return sakurajin::unit_system::time_si{val, 1.0, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _s(unsigned long long int val) {
+            inline auto operator"" _s(unsigned long long int val) {
                 return sakurajin::unit_system::time_si{static_cast<long double>(val), 1.0, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _ms(long double val) {
+            inline auto operator"" _ms(long double val) {
                 return sakurajin::unit_system::time_si{val, 0.001, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _ms(unsigned long long int val) {
+            inline auto operator"" _ms(unsigned long long int val) {
                 return sakurajin::unit_system::time_si{static_cast<long double>(val), 0.001, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _us(long double val) {
+            inline auto operator"" _us(long double val) {
                 return sakurajin::unit_system::time_si{val, 1e-06, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _us(unsigned long long int val) {
+            inline auto operator"" _us(unsigned long long int val) {
                 return sakurajin::unit_system::time_si{static_cast<long double>(val), 1e-06, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _ns(long double val) {
+            inline auto operator"" _ns(long double val) {
                 return sakurajin::unit_system::time_si{val, 1e-09, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _ns(unsigned long long int val) {
+            inline auto operator"" _ns(unsigned long long int val) {
                 return sakurajin::unit_system::time_si{static_cast<long double>(val), 1e-09, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _ps(long double val) {
+            inline auto operator"" _ps(long double val) {
                 return sakurajin::unit_system::time_si{val, 1e-12, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _ps(unsigned long long int val) {
+            inline auto operator"" _ps(unsigned long long int val) {
                 return sakurajin::unit_system::time_si{static_cast<long double>(val), 1e-12, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _fs(long double val) {
+            inline auto operator"" _fs(long double val) {
                 return sakurajin::unit_system::time_si{val, 1e-15, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _fs(unsigned long long int val) {
+            inline auto operator"" _fs(unsigned long long int val) {
                 return sakurajin::unit_system::time_si{static_cast<long double>(val), 1e-15, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _as(long double val) {
+            inline auto operator"" _as(long double val) {
                 return sakurajin::unit_system::time_si{val, 1e-18, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _as(unsigned long long int val) {
+            inline auto operator"" _as(unsigned long long int val) {
                 return sakurajin::unit_system::time_si{static_cast<long double>(val), 1e-18, 0.0};
             }
 
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _m(long double val) {
+            inline auto operator"" _m(long double val) {
                 return sakurajin::unit_system::length{val, 1.0, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _m(unsigned long long int val) {
+            inline auto operator"" _m(unsigned long long int val) {
                 return sakurajin::unit_system::length{static_cast<long double>(val), 1.0, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _km(long double val) {
+            inline auto operator"" _km(long double val) {
                 return sakurajin::unit_system::length{val, 1000.0, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _km(unsigned long long int val) {
+            inline auto operator"" _km(unsigned long long int val) {
                 return sakurajin::unit_system::length{static_cast<long double>(val), 1000.0, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _dm(long double val) {
+            inline auto operator"" _dm(long double val) {
                 return sakurajin::unit_system::length{val, 0.1, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _dm(unsigned long long int val) {
+            inline auto operator"" _dm(unsigned long long int val) {
                 return sakurajin::unit_system::length{static_cast<long double>(val), 0.1, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _cm(long double val) {
+            inline auto operator"" _cm(long double val) {
                 return sakurajin::unit_system::length{val, 0.01, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _cm(unsigned long long int val) {
+            inline auto operator"" _cm(unsigned long long int val) {
                 return sakurajin::unit_system::length{static_cast<long double>(val), 0.01, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _mm(long double val) {
+            inline auto operator"" _mm(long double val) {
                 return sakurajin::unit_system::length{val, 0.001, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _mm(unsigned long long int val) {
+            inline auto operator"" _mm(unsigned long long int val) {
                 return sakurajin::unit_system::length{static_cast<long double>(val), 0.001, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _um(long double val) {
+            inline auto operator"" _um(long double val) {
                 return sakurajin::unit_system::length{val, 1e-06, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _um(unsigned long long int val) {
+            inline auto operator"" _um(unsigned long long int val) {
                 return sakurajin::unit_system::length{static_cast<long double>(val), 1e-06, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _nm(long double val) {
+            inline auto operator"" _nm(long double val) {
                 return sakurajin::unit_system::length{val, 1e-09, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _nm(unsigned long long int val) {
+            inline auto operator"" _nm(unsigned long long int val) {
                 return sakurajin::unit_system::length{static_cast<long double>(val), 1e-09, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _pm(long double val) {
+            inline auto operator"" _pm(long double val) {
                 return sakurajin::unit_system::length{val, 1e-12, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _pm(unsigned long long int val) {
+            inline auto operator"" _pm(unsigned long long int val) {
                 return sakurajin::unit_system::length{static_cast<long double>(val), 1e-12, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _fm(long double val) {
+            inline auto operator"" _fm(long double val) {
                 return sakurajin::unit_system::length{val, 1e-15, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _fm(unsigned long long int val) {
+            inline auto operator"" _fm(unsigned long long int val) {
                 return sakurajin::unit_system::length{static_cast<long double>(val), 1e-15, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _am(long double val) {
+            inline auto operator"" _am(long double val) {
                 return sakurajin::unit_system::length{val, 1e-18, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _am(unsigned long long int val) {
+            inline auto operator"" _am(unsigned long long int val) {
                 return sakurajin::unit_system::length{static_cast<long double>(val), 1e-18, 0.0};
             }
 
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _t(long double val) {
+            inline auto operator"" _t(long double val) {
                 return sakurajin::unit_system::mass{val, 1000.0, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _t(unsigned long long int val) {
+            inline auto operator"" _t(unsigned long long int val) {
                 return sakurajin::unit_system::mass{static_cast<long double>(val), 1000.0, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _kg(long double val) {
+            inline auto operator"" _kg(long double val) {
                 return sakurajin::unit_system::mass{val, 1.0, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _kg(unsigned long long int val) {
+            inline auto operator"" _kg(unsigned long long int val) {
                 return sakurajin::unit_system::mass{static_cast<long double>(val), 1.0, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _g(long double val) {
+            inline auto operator"" _g(long double val) {
                 return sakurajin::unit_system::mass{val, 0.001, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _g(unsigned long long int val) {
+            inline auto operator"" _g(unsigned long long int val) {
                 return sakurajin::unit_system::mass{static_cast<long double>(val), 0.001, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _mg(long double val) {
+            inline auto operator"" _mg(long double val) {
                 return sakurajin::unit_system::mass{val, 1e-06, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _mg(unsigned long long int val) {
+            inline auto operator"" _mg(unsigned long long int val) {
                 return sakurajin::unit_system::mass{static_cast<long double>(val), 1e-06, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _ug(long double val) {
+            inline auto operator"" _ug(long double val) {
                 return sakurajin::unit_system::mass{val, 1e-09, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _ug(unsigned long long int val) {
+            inline auto operator"" _ug(unsigned long long int val) {
                 return sakurajin::unit_system::mass{static_cast<long double>(val), 1e-09, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _ng(long double val) {
+            inline auto operator"" _ng(long double val) {
                 return sakurajin::unit_system::mass{val, 1.0000000000000002e-12, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _ng(unsigned long long int val) {
+            inline auto operator"" _ng(unsigned long long int val) {
                 return sakurajin::unit_system::mass{static_cast<long double>(val), 1.0000000000000002e-12, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _pg(long double val) {
+            inline auto operator"" _pg(long double val) {
                 return sakurajin::unit_system::mass{val, 1e-15, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _pg(unsigned long long int val) {
+            inline auto operator"" _pg(unsigned long long int val) {
                 return sakurajin::unit_system::mass{static_cast<long double>(val), 1e-15, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _fg(long double val) {
+            inline auto operator"" _fg(long double val) {
                 return sakurajin::unit_system::mass{val, 1e-18, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _fg(unsigned long long int val) {
+            inline auto operator"" _fg(unsigned long long int val) {
                 return sakurajin::unit_system::mass{static_cast<long double>(val), 1e-18, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _ag(long double val) {
+            inline auto operator"" _ag(long double val) {
                 return sakurajin::unit_system::mass{val, 1.0000000000000001e-21, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _ag(unsigned long long int val) {
+            inline auto operator"" _ag(unsigned long long int val) {
                 return sakurajin::unit_system::mass{static_cast<long double>(val), 1.0000000000000001e-21, 0.0};
             }
 
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _K(long double val) {
+            inline auto operator"" _K(long double val) {
                 return sakurajin::unit_system::temperature{val, 1.0, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _K(unsigned long long int val) {
+            inline auto operator"" _K(unsigned long long int val) {
                 return sakurajin::unit_system::temperature{static_cast<long double>(val), 1.0, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _C(long double val) {
+            inline auto operator"" _C(long double val) {
                 return sakurajin::unit_system::temperature{val, 1.0, 273.15};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _C(unsigned long long int val) {
+            inline auto operator"" _C(unsigned long long int val) {
                 return sakurajin::unit_system::temperature{static_cast<long double>(val), 1.0, 273.15};
             }
 
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _mol(long double val) {
+            inline auto operator"" _mol(long double val) {
                 return sakurajin::unit_system::amount{val, 6.02214076e+23, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _mol(unsigned long long int val) {
+            inline auto operator"" _mol(unsigned long long int val) {
                 return sakurajin::unit_system::amount{static_cast<long double>(val), 6.02214076e+23, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _things(long double val) {
+            inline auto operator"" _things(long double val) {
                 return sakurajin::unit_system::amount{val, 1.0, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _things(unsigned long long int val) {
+            inline auto operator"" _things(unsigned long long int val) {
                 return sakurajin::unit_system::amount{static_cast<long double>(val), 1.0, 0.0};
             }
 
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _A(long double val) {
+            inline auto operator"" _A(long double val) {
                 return sakurajin::unit_system::electric_current{val, 1.0, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _A(unsigned long long int val) {
+            inline auto operator"" _A(unsigned long long int val) {
                 return sakurajin::unit_system::electric_current{static_cast<long double>(val), 1.0, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _PA(long double val) {
+            inline auto operator"" _PA(long double val) {
                 return sakurajin::unit_system::electric_current{val, 1000000000000000.0, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _PA(unsigned long long int val) {
+            inline auto operator"" _PA(unsigned long long int val) {
                 return sakurajin::unit_system::electric_current{static_cast<long double>(val), 1000000000000000.0, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _TA(long double val) {
+            inline auto operator"" _TA(long double val) {
                 return sakurajin::unit_system::electric_current{val, 1000000000000.0, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _TA(unsigned long long int val) {
+            inline auto operator"" _TA(unsigned long long int val) {
                 return sakurajin::unit_system::electric_current{static_cast<long double>(val), 1000000000000.0, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _GA(long double val) {
+            inline auto operator"" _GA(long double val) {
                 return sakurajin::unit_system::electric_current{val, 1000000000.0, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _GA(unsigned long long int val) {
+            inline auto operator"" _GA(unsigned long long int val) {
                 return sakurajin::unit_system::electric_current{static_cast<long double>(val), 1000000000.0, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _MA(long double val) {
+            inline auto operator"" _MA(long double val) {
                 return sakurajin::unit_system::electric_current{val, 1000000.0, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _MA(unsigned long long int val) {
+            inline auto operator"" _MA(unsigned long long int val) {
                 return sakurajin::unit_system::electric_current{static_cast<long double>(val), 1000000.0, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _kA(long double val) {
+            inline auto operator"" _kA(long double val) {
                 return sakurajin::unit_system::electric_current{val, 1000.0, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _kA(unsigned long long int val) {
+            inline auto operator"" _kA(unsigned long long int val) {
                 return sakurajin::unit_system::electric_current{static_cast<long double>(val), 1000.0, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _mA(long double val) {
+            inline auto operator"" _mA(long double val) {
                 return sakurajin::unit_system::electric_current{val, 0.001, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _mA(unsigned long long int val) {
+            inline auto operator"" _mA(unsigned long long int val) {
                 return sakurajin::unit_system::electric_current{static_cast<long double>(val), 0.001, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _uA(long double val) {
+            inline auto operator"" _uA(long double val) {
                 return sakurajin::unit_system::electric_current{val, 1e-06, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _uA(unsigned long long int val) {
+            inline auto operator"" _uA(unsigned long long int val) {
                 return sakurajin::unit_system::electric_current{static_cast<long double>(val), 1e-06, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _nA(long double val) {
+            inline auto operator"" _nA(long double val) {
                 return sakurajin::unit_system::electric_current{val, 1e-09, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _nA(unsigned long long int val) {
+            inline auto operator"" _nA(unsigned long long int val) {
                 return sakurajin::unit_system::electric_current{static_cast<long double>(val), 1e-09, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _pA(long double val) {
+            inline auto operator"" _pA(long double val) {
                 return sakurajin::unit_system::electric_current{val, 1e-12, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _pA(unsigned long long int val) {
+            inline auto operator"" _pA(unsigned long long int val) {
                 return sakurajin::unit_system::electric_current{static_cast<long double>(val), 1e-12, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _fA(long double val) {
+            inline auto operator"" _fA(long double val) {
                 return sakurajin::unit_system::electric_current{val, 1e-15, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _fA(unsigned long long int val) {
+            inline auto operator"" _fA(unsigned long long int val) {
                 return sakurajin::unit_system::electric_current{static_cast<long double>(val), 1e-15, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _aA(long double val) {
+            inline auto operator"" _aA(long double val) {
                 return sakurajin::unit_system::electric_current{val, 1e-18, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _aA(unsigned long long int val) {
+            inline auto operator"" _aA(unsigned long long int val) {
                 return sakurajin::unit_system::electric_current{static_cast<long double>(val), 1e-18, 0.0};
             }
 
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _cd(long double val) {
+            inline auto operator"" _cd(long double val) {
                 return sakurajin::unit_system::luminous_intensity{val, 1.0, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _cd(unsigned long long int val) {
+            inline auto operator"" _cd(unsigned long long int val) {
                 return sakurajin::unit_system::luminous_intensity{static_cast<long double>(val), 1.0, 0.0};
             }
 
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _J(long double val) {
+            inline auto operator"" _J(long double val) {
                 return sakurajin::unit_system::energy{val, 1.0, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _J(unsigned long long int val) {
+            inline auto operator"" _J(unsigned long long int val) {
                 return sakurajin::unit_system::energy{static_cast<long double>(val), 1.0, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _Nm(long double val) {
+            inline auto operator"" _Nm(long double val) {
                 return sakurajin::unit_system::energy{val, 1.0, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _Nm(unsigned long long int val) {
+            inline auto operator"" _Nm(unsigned long long int val) {
                 return sakurajin::unit_system::energy{static_cast<long double>(val), 1.0, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _eV(long double val) {
+            inline auto operator"" _eV(long double val) {
                 return sakurajin::unit_system::energy{val, 1.602176634e-19, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _eV(unsigned long long int val) {
+            inline auto operator"" _eV(unsigned long long int val) {
                 return sakurajin::unit_system::energy{static_cast<long double>(val), 1.602176634e-19, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _Wh(long double val) {
+            inline auto operator"" _Wh(long double val) {
                 return sakurajin::unit_system::energy{val, 3600.0, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _Wh(unsigned long long int val) {
+            inline auto operator"" _Wh(unsigned long long int val) {
                 return sakurajin::unit_system::energy{static_cast<long double>(val), 3600.0, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _Ws(long double val) {
+            inline auto operator"" _Ws(long double val) {
                 return sakurajin::unit_system::energy{val, 1.0, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _Ws(unsigned long long int val) {
+            inline auto operator"" _Ws(unsigned long long int val) {
                 return sakurajin::unit_system::energy{static_cast<long double>(val), 1.0, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _PJ(long double val) {
+            inline auto operator"" _PJ(long double val) {
                 return sakurajin::unit_system::energy{val, 1000000000000000.0, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _PJ(unsigned long long int val) {
+            inline auto operator"" _PJ(unsigned long long int val) {
                 return sakurajin::unit_system::energy{static_cast<long double>(val), 1000000000000000.0, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _TJ(long double val) {
+            inline auto operator"" _TJ(long double val) {
                 return sakurajin::unit_system::energy{val, 1000000000000.0, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _TJ(unsigned long long int val) {
+            inline auto operator"" _TJ(unsigned long long int val) {
                 return sakurajin::unit_system::energy{static_cast<long double>(val), 1000000000000.0, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _GJ(long double val) {
+            inline auto operator"" _GJ(long double val) {
                 return sakurajin::unit_system::energy{val, 1000000000.0, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _GJ(unsigned long long int val) {
+            inline auto operator"" _GJ(unsigned long long int val) {
                 return sakurajin::unit_system::energy{static_cast<long double>(val), 1000000000.0, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _MJ(long double val) {
+            inline auto operator"" _MJ(long double val) {
                 return sakurajin::unit_system::energy{val, 1000000.0, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _MJ(unsigned long long int val) {
+            inline auto operator"" _MJ(unsigned long long int val) {
                 return sakurajin::unit_system::energy{static_cast<long double>(val), 1000000.0, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _kJ(long double val) {
+            inline auto operator"" _kJ(long double val) {
                 return sakurajin::unit_system::energy{val, 1000.0, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _kJ(unsigned long long int val) {
+            inline auto operator"" _kJ(unsigned long long int val) {
                 return sakurajin::unit_system::energy{static_cast<long double>(val), 1000.0, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _mJ(long double val) {
+            inline auto operator"" _mJ(long double val) {
                 return sakurajin::unit_system::energy{val, 0.001, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _mJ(unsigned long long int val) {
+            inline auto operator"" _mJ(unsigned long long int val) {
                 return sakurajin::unit_system::energy{static_cast<long double>(val), 0.001, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _uJ(long double val) {
+            inline auto operator"" _uJ(long double val) {
                 return sakurajin::unit_system::energy{val, 1e-06, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _uJ(unsigned long long int val) {
+            inline auto operator"" _uJ(unsigned long long int val) {
                 return sakurajin::unit_system::energy{static_cast<long double>(val), 1e-06, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _nJ(long double val) {
+            inline auto operator"" _nJ(long double val) {
                 return sakurajin::unit_system::energy{val, 1e-09, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _nJ(unsigned long long int val) {
+            inline auto operator"" _nJ(unsigned long long int val) {
                 return sakurajin::unit_system::energy{static_cast<long double>(val), 1e-09, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _pJ(long double val) {
+            inline auto operator"" _pJ(long double val) {
                 return sakurajin::unit_system::energy{val, 1e-12, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _pJ(unsigned long long int val) {
+            inline auto operator"" _pJ(unsigned long long int val) {
                 return sakurajin::unit_system::energy{static_cast<long double>(val), 1e-12, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _fJ(long double val) {
+            inline auto operator"" _fJ(long double val) {
                 return sakurajin::unit_system::energy{val, 1e-15, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _fJ(unsigned long long int val) {
+            inline auto operator"" _fJ(unsigned long long int val) {
                 return sakurajin::unit_system::energy{static_cast<long double>(val), 1e-15, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _aJ(long double val) {
+            inline auto operator"" _aJ(long double val) {
                 return sakurajin::unit_system::energy{val, 1e-18, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _aJ(unsigned long long int val) {
+            inline auto operator"" _aJ(unsigned long long int val) {
                 return sakurajin::unit_system::energy{static_cast<long double>(val), 1e-18, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _GNm(long double val) {
+            inline auto operator"" _GNm(long double val) {
                 return sakurajin::unit_system::energy{val, 1000000000.0, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _GNm(unsigned long long int val) {
+            inline auto operator"" _GNm(unsigned long long int val) {
                 return sakurajin::unit_system::energy{static_cast<long double>(val), 1000000000.0, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _MNm(long double val) {
+            inline auto operator"" _MNm(long double val) {
                 return sakurajin::unit_system::energy{val, 1000000.0, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _MNm(unsigned long long int val) {
+            inline auto operator"" _MNm(unsigned long long int val) {
                 return sakurajin::unit_system::energy{static_cast<long double>(val), 1000000.0, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _kNm(long double val) {
+            inline auto operator"" _kNm(long double val) {
                 return sakurajin::unit_system::energy{val, 1000.0, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _kNm(unsigned long long int val) {
+            inline auto operator"" _kNm(unsigned long long int val) {
                 return sakurajin::unit_system::energy{static_cast<long double>(val), 1000.0, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _mNm(long double val) {
+            inline auto operator"" _mNm(long double val) {
                 return sakurajin::unit_system::energy{val, 0.001, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _mNm(unsigned long long int val) {
+            inline auto operator"" _mNm(unsigned long long int val) {
                 return sakurajin::unit_system::energy{static_cast<long double>(val), 0.001, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _uNm(long double val) {
+            inline auto operator"" _uNm(long double val) {
                 return sakurajin::unit_system::energy{val, 1e-06, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _uNm(unsigned long long int val) {
+            inline auto operator"" _uNm(unsigned long long int val) {
                 return sakurajin::unit_system::energy{static_cast<long double>(val), 1e-06, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _PeV(long double val) {
+            inline auto operator"" _PeV(long double val) {
                 return sakurajin::unit_system::energy{val, 0.0001602176634, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _PeV(unsigned long long int val) {
+            inline auto operator"" _PeV(unsigned long long int val) {
                 return sakurajin::unit_system::energy{static_cast<long double>(val), 0.0001602176634, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _TeV(long double val) {
+            inline auto operator"" _TeV(long double val) {
                 return sakurajin::unit_system::energy{val, 1.602176634e-07, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _TeV(unsigned long long int val) {
+            inline auto operator"" _TeV(unsigned long long int val) {
                 return sakurajin::unit_system::energy{static_cast<long double>(val), 1.602176634e-07, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _GeV(long double val) {
+            inline auto operator"" _GeV(long double val) {
                 return sakurajin::unit_system::energy{val, 1.6021766339999998e-10, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _GeV(unsigned long long int val) {
+            inline auto operator"" _GeV(unsigned long long int val) {
                 return sakurajin::unit_system::energy{static_cast<long double>(val), 1.6021766339999998e-10, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _MeV(long double val) {
+            inline auto operator"" _MeV(long double val) {
                 return sakurajin::unit_system::energy{val, 1.6021766339999998e-13, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _MeV(unsigned long long int val) {
+            inline auto operator"" _MeV(unsigned long long int val) {
                 return sakurajin::unit_system::energy{static_cast<long double>(val), 1.6021766339999998e-13, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _keV(long double val) {
+            inline auto operator"" _keV(long double val) {
                 return sakurajin::unit_system::energy{val, 1.602176634e-16, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _keV(unsigned long long int val) {
+            inline auto operator"" _keV(unsigned long long int val) {
                 return sakurajin::unit_system::energy{static_cast<long double>(val), 1.602176634e-16, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _meV(long double val) {
+            inline auto operator"" _meV(long double val) {
                 return sakurajin::unit_system::energy{val, 1.6021766339999998e-22, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _meV(unsigned long long int val) {
+            inline auto operator"" _meV(unsigned long long int val) {
                 return sakurajin::unit_system::energy{static_cast<long double>(val), 1.6021766339999998e-22, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _ueV(long double val) {
+            inline auto operator"" _ueV(long double val) {
                 return sakurajin::unit_system::energy{val, 1.602176634e-25, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _ueV(unsigned long long int val) {
+            inline auto operator"" _ueV(unsigned long long int val) {
                 return sakurajin::unit_system::energy{static_cast<long double>(val), 1.602176634e-25, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _PWh(long double val) {
+            inline auto operator"" _PWh(long double val) {
                 return sakurajin::unit_system::energy{val, 3.6e+18, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _PWh(unsigned long long int val) {
+            inline auto operator"" _PWh(unsigned long long int val) {
                 return sakurajin::unit_system::energy{static_cast<long double>(val), 3.6e+18, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _TWh(long double val) {
+            inline auto operator"" _TWh(long double val) {
                 return sakurajin::unit_system::energy{val, 3600000000000000.0, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _TWh(unsigned long long int val) {
+            inline auto operator"" _TWh(unsigned long long int val) {
                 return sakurajin::unit_system::energy{static_cast<long double>(val), 3600000000000000.0, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _GWh(long double val) {
+            inline auto operator"" _GWh(long double val) {
                 return sakurajin::unit_system::energy{val, 3600000000000.0, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _GWh(unsigned long long int val) {
+            inline auto operator"" _GWh(unsigned long long int val) {
                 return sakurajin::unit_system::energy{static_cast<long double>(val), 3600000000000.0, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _MWh(long double val) {
+            inline auto operator"" _MWh(long double val) {
                 return sakurajin::unit_system::energy{val, 3600000000.0, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _MWh(unsigned long long int val) {
+            inline auto operator"" _MWh(unsigned long long int val) {
                 return sakurajin::unit_system::energy{static_cast<long double>(val), 3600000000.0, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _kWh(long double val) {
+            inline auto operator"" _kWh(long double val) {
                 return sakurajin::unit_system::energy{val, 3600000.0, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _kWh(unsigned long long int val) {
+            inline auto operator"" _kWh(unsigned long long int val) {
                 return sakurajin::unit_system::energy{static_cast<long double>(val), 3600000.0, 0.0};
             }
 
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _W(long double val) {
+            inline auto operator"" _W(long double val) {
                 return sakurajin::unit_system::power{val, 1.0, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _W(unsigned long long int val) {
+            inline auto operator"" _W(unsigned long long int val) {
                 return sakurajin::unit_system::power{static_cast<long double>(val), 1.0, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _PW(long double val) {
+            inline auto operator"" _PW(long double val) {
                 return sakurajin::unit_system::power{val, 1000000000000000.0, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _PW(unsigned long long int val) {
+            inline auto operator"" _PW(unsigned long long int val) {
                 return sakurajin::unit_system::power{static_cast<long double>(val), 1000000000000000.0, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _TW(long double val) {
+            inline auto operator"" _TW(long double val) {
                 return sakurajin::unit_system::power{val, 1000000000000.0, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _TW(unsigned long long int val) {
+            inline auto operator"" _TW(unsigned long long int val) {
                 return sakurajin::unit_system::power{static_cast<long double>(val), 1000000000000.0, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _GW(long double val) {
+            inline auto operator"" _GW(long double val) {
                 return sakurajin::unit_system::power{val, 1000000000.0, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _GW(unsigned long long int val) {
+            inline auto operator"" _GW(unsigned long long int val) {
                 return sakurajin::unit_system::power{static_cast<long double>(val), 1000000000.0, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _MW(long double val) {
+            inline auto operator"" _MW(long double val) {
                 return sakurajin::unit_system::power{val, 1000000.0, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _MW(unsigned long long int val) {
+            inline auto operator"" _MW(unsigned long long int val) {
                 return sakurajin::unit_system::power{static_cast<long double>(val), 1000000.0, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _kW(long double val) {
+            inline auto operator"" _kW(long double val) {
                 return sakurajin::unit_system::power{val, 1000.0, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _kW(unsigned long long int val) {
+            inline auto operator"" _kW(unsigned long long int val) {
                 return sakurajin::unit_system::power{static_cast<long double>(val), 1000.0, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _mW(long double val) {
+            inline auto operator"" _mW(long double val) {
                 return sakurajin::unit_system::power{val, 0.001, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _mW(unsigned long long int val) {
+            inline auto operator"" _mW(unsigned long long int val) {
                 return sakurajin::unit_system::power{static_cast<long double>(val), 0.001, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _uW(long double val) {
+            inline auto operator"" _uW(long double val) {
                 return sakurajin::unit_system::power{val, 1e-06, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _uW(unsigned long long int val) {
+            inline auto operator"" _uW(unsigned long long int val) {
                 return sakurajin::unit_system::power{static_cast<long double>(val), 1e-06, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _nW(long double val) {
+            inline auto operator"" _nW(long double val) {
                 return sakurajin::unit_system::power{val, 1e-09, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _nW(unsigned long long int val) {
+            inline auto operator"" _nW(unsigned long long int val) {
                 return sakurajin::unit_system::power{static_cast<long double>(val), 1e-09, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _pW(long double val) {
+            inline auto operator"" _pW(long double val) {
                 return sakurajin::unit_system::power{val, 1e-12, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _pW(unsigned long long int val) {
+            inline auto operator"" _pW(unsigned long long int val) {
                 return sakurajin::unit_system::power{static_cast<long double>(val), 1e-12, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _fW(long double val) {
+            inline auto operator"" _fW(long double val) {
                 return sakurajin::unit_system::power{val, 1e-15, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _fW(unsigned long long int val) {
+            inline auto operator"" _fW(unsigned long long int val) {
                 return sakurajin::unit_system::power{static_cast<long double>(val), 1e-15, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _aW(long double val) {
+            inline auto operator"" _aW(long double val) {
                 return sakurajin::unit_system::power{val, 1e-18, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _aW(unsigned long long int val) {
+            inline auto operator"" _aW(unsigned long long int val) {
                 return sakurajin::unit_system::power{static_cast<long double>(val), 1e-18, 0.0};
             }
 
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _mps(long double val) {
+            inline auto operator"" _mps(long double val) {
                 return sakurajin::unit_system::speed{val, 1.0, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _mps(unsigned long long int val) {
+            inline auto operator"" _mps(unsigned long long int val) {
                 return sakurajin::unit_system::speed{static_cast<long double>(val), 1.0, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _kmph(long double val) {
+            inline auto operator"" _kmph(long double val) {
                 return sakurajin::unit_system::speed{val, 0.2777777777777778, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _kmph(unsigned long long int val) {
+            inline auto operator"" _kmph(unsigned long long int val) {
                 return sakurajin::unit_system::speed{static_cast<long double>(val), 0.2777777777777778, 0.0};
             }
 
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _mps2(long double val) {
+            inline auto operator"" _mps2(long double val) {
                 return sakurajin::unit_system::acceleration{val, 1.0, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _mps2(unsigned long long int val) {
+            inline auto operator"" _mps2(unsigned long long int val) {
                 return sakurajin::unit_system::acceleration{static_cast<long double>(val), 1.0, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _G(long double val) {
+            inline auto operator"" _G(long double val) {
                 return sakurajin::unit_system::acceleration{val, 9.80665, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _G(unsigned long long int val) {
+            inline auto operator"" _G(unsigned long long int val) {
                 return sakurajin::unit_system::acceleration{static_cast<long double>(val), 9.80665, 0.0};
             }
 
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _m2(long double val) {
+            inline auto operator"" _m2(long double val) {
                 return sakurajin::unit_system::area{val, 1.0, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _m2(unsigned long long int val) {
+            inline auto operator"" _m2(unsigned long long int val) {
                 return sakurajin::unit_system::area{static_cast<long double>(val), 1.0, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _are(long double val) {
+            inline auto operator"" _are(long double val) {
                 return sakurajin::unit_system::area{val, 100.0, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _are(unsigned long long int val) {
+            inline auto operator"" _are(unsigned long long int val) {
                 return sakurajin::unit_system::area{static_cast<long double>(val), 100.0, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _hectare(long double val) {
+            inline auto operator"" _hectare(long double val) {
                 return sakurajin::unit_system::area{val, 10000.0, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _hectare(unsigned long long int val) {
+            inline auto operator"" _hectare(unsigned long long int val) {
                 return sakurajin::unit_system::area{static_cast<long double>(val), 10000.0, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _km2(long double val) {
+            inline auto operator"" _km2(long double val) {
                 return sakurajin::unit_system::area{val, 1000000.0, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _km2(unsigned long long int val) {
+            inline auto operator"" _km2(unsigned long long int val) {
                 return sakurajin::unit_system::area{static_cast<long double>(val), 1000000.0, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _mm2(long double val) {
+            inline auto operator"" _mm2(long double val) {
                 return sakurajin::unit_system::area{val, 1e-06, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _mm2(unsigned long long int val) {
+            inline auto operator"" _mm2(unsigned long long int val) {
                 return sakurajin::unit_system::area{static_cast<long double>(val), 1e-06, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _um2(long double val) {
+            inline auto operator"" _um2(long double val) {
                 return sakurajin::unit_system::area{val, 1e-12, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _um2(unsigned long long int val) {
+            inline auto operator"" _um2(unsigned long long int val) {
                 return sakurajin::unit_system::area{static_cast<long double>(val), 1e-12, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _nm2(long double val) {
+            inline auto operator"" _nm2(long double val) {
                 return sakurajin::unit_system::area{val, 1e-18, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _nm2(unsigned long long int val) {
+            inline auto operator"" _nm2(unsigned long long int val) {
                 return sakurajin::unit_system::area{static_cast<long double>(val), 1e-18, 0.0};
             }
 
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _N(long double val) {
+            inline auto operator"" _N(long double val) {
                 return sakurajin::unit_system::force{val, 1.0, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _N(unsigned long long int val) {
+            inline auto operator"" _N(unsigned long long int val) {
                 return sakurajin::unit_system::force{static_cast<long double>(val), 1.0, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _PN(long double val) {
+            inline auto operator"" _PN(long double val) {
                 return sakurajin::unit_system::force{val, 1000000000000000.0, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _PN(unsigned long long int val) {
+            inline auto operator"" _PN(unsigned long long int val) {
                 return sakurajin::unit_system::force{static_cast<long double>(val), 1000000000000000.0, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _TN(long double val) {
+            inline auto operator"" _TN(long double val) {
                 return sakurajin::unit_system::force{val, 1000000000000.0, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _TN(unsigned long long int val) {
+            inline auto operator"" _TN(unsigned long long int val) {
                 return sakurajin::unit_system::force{static_cast<long double>(val), 1000000000000.0, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _GN(long double val) {
+            inline auto operator"" _GN(long double val) {
                 return sakurajin::unit_system::force{val, 1000000000.0, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _GN(unsigned long long int val) {
+            inline auto operator"" _GN(unsigned long long int val) {
                 return sakurajin::unit_system::force{static_cast<long double>(val), 1000000000.0, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _MN(long double val) {
+            inline auto operator"" _MN(long double val) {
                 return sakurajin::unit_system::force{val, 1000000.0, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _MN(unsigned long long int val) {
+            inline auto operator"" _MN(unsigned long long int val) {
                 return sakurajin::unit_system::force{static_cast<long double>(val), 1000000.0, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _kN(long double val) {
+            inline auto operator"" _kN(long double val) {
                 return sakurajin::unit_system::force{val, 1000.0, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _kN(unsigned long long int val) {
+            inline auto operator"" _kN(unsigned long long int val) {
                 return sakurajin::unit_system::force{static_cast<long double>(val), 1000.0, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _mN(long double val) {
+            inline auto operator"" _mN(long double val) {
                 return sakurajin::unit_system::force{val, 0.001, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _mN(unsigned long long int val) {
+            inline auto operator"" _mN(unsigned long long int val) {
                 return sakurajin::unit_system::force{static_cast<long double>(val), 0.001, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _uN(long double val) {
+            inline auto operator"" _uN(long double val) {
                 return sakurajin::unit_system::force{val, 1e-06, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _uN(unsigned long long int val) {
+            inline auto operator"" _uN(unsigned long long int val) {
                 return sakurajin::unit_system::force{static_cast<long double>(val), 1e-06, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _nN(long double val) {
+            inline auto operator"" _nN(long double val) {
                 return sakurajin::unit_system::force{val, 1e-09, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _nN(unsigned long long int val) {
+            inline auto operator"" _nN(unsigned long long int val) {
                 return sakurajin::unit_system::force{static_cast<long double>(val), 1e-09, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _pN(long double val) {
+            inline auto operator"" _pN(long double val) {
                 return sakurajin::unit_system::force{val, 1e-12, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _pN(unsigned long long int val) {
+            inline auto operator"" _pN(unsigned long long int val) {
                 return sakurajin::unit_system::force{static_cast<long double>(val), 1e-12, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _fN(long double val) {
+            inline auto operator"" _fN(long double val) {
                 return sakurajin::unit_system::force{val, 1e-15, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _fN(unsigned long long int val) {
+            inline auto operator"" _fN(unsigned long long int val) {
                 return sakurajin::unit_system::force{static_cast<long double>(val), 1e-15, 0.0};
             }
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _aN(long double val) {
+            inline auto operator"" _aN(long double val) {
                 return sakurajin::unit_system::force{val, 1e-18, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _aN(unsigned long long int val) {
+            inline auto operator"" _aN(unsigned long long int val) {
                 return sakurajin::unit_system::force{static_cast<long double>(val), 1e-18, 0.0};
             }
 
 
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _kgmps(long double val) {
+            inline auto operator"" _kgmps(long double val) {
                 return sakurajin::unit_system::momentum{val, 1.0, 0.0};
             }
-            UNIT_SYSTEM_EXPORT_MACRO auto operator"" _kgmps(unsigned long long int val) {
+            inline auto operator"" _kgmps(unsigned long long int val) {
                 return sakurajin::unit_system::momentum{static_cast<long double>(val), 1.0, 0.0};
             }
 

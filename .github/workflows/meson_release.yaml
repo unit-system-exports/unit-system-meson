@@ -5,6 +5,7 @@ on:
     tags:
       - 'v*'
 
+
 jobs:
   meson_cpp17_matrix:
     strategy:
@@ -35,8 +36,8 @@ jobs:
     name: ${{ matrix.os }} ${{ matrix.buildType }} msys ${{ matrix.useMsys }}
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
       - name: default - Prepare MSVC
         if: ${{ !matrix.useMsys && matrix.os == 'windows-latest' }}
         uses: bus1/cabuild/action/msdevshell@v1
@@ -80,7 +81,7 @@ jobs:
         shell: msys2 {0}
         run: meson test --verbose -C build
             
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         if: failure()
         with:
           name: build-artifact-${{ matrix.os }}-${{ matrix.buildType }}-msys-${{ matrix.useMsys }}
@@ -88,12 +89,12 @@ jobs:
 
 
 
-release:
+  release_job:
     name: "Release candidate"
     runs-on: "ubuntu-20.04"
     needs: [meson_cpp17_matrix]
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: "release"
         uses: "marvinpinto/action-automatic-releases@latest"
         with:
@@ -108,4 +109,3 @@ release:
           provides: "unit-system = unit_system_dep"
           push-repository: "https://github.com/noah1510/wrapdb"
           github_token: ${{ secrets.CI_GITHUB_TOKEN }}
-

@@ -3499,8 +3499,9 @@ namespace std {
 // add compatibility with std::chrono
 namespace sakurajin {
     namespace unit_system {
-        template <class Rep, class Period = std::ratio<1>>
-        time_si unit_cast(const std::chrono::duration<Rep, Period>& other, auto new_multiplier = 1.0) {
+        template <class Rep, class Period = std::ratio<1>, class mult_t = UNIT_SYSTEM_DEFAULT_TYPE>
+            requires std::convertible_to<mult_t, UNIT_SYSTEM_DEFAULT_TYPE>
+        time_si unit_cast(const std::chrono::duration<Rep, Period>& other, mult_t new_multiplier = 1.0) {
             auto t      = std::chrono::duration_cast<std::chrono::duration<double, std::ratio<1, 1>>>(other);
             auto retval = time_si{t.count(), 1};
             return retval.convert_multiplier(new_multiplier);

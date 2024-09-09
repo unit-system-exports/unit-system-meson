@@ -34,12 +34,13 @@ namespace sakurajin {
 
 
         class UNIT_SYSTEM_EXPORT_MACRO time_si {
-          public:
-            const long double multiplier;
-            long double       value = 0;
-            const long double offset;
-            long double       rel_error = 0.000001;
+          private:
+            long double value = 0;
+            long double multiplier;
+            long double offset;
+            long double rel_error = 0.000001;
 
+          public:
             time_si();
             time_si(const time_si& other) = default;
 
@@ -51,6 +52,16 @@ namespace sakurajin {
             template <std::intmax_t numerator, std::intmax_t denumerator = 1>
             time_si(long double v, std::ratio<numerator, denumerator> mult, long double off = 0);
 
+
+            long double val() const;
+            long double mult() const;
+            long double off() const;
+            long double rel_err() const;
+
+            long double& val();
+            long double& mult();
+            long double& off();
+            long double& rel_err();
 
             time_si operator*(long double scalar) const;
             void    operator*=(long double scalar);
@@ -94,17 +105,13 @@ namespace sakurajin {
 
 
             [[nodiscard]]
-            length
-            operator*(const speed& other) const;
+            length operator*(const speed& other) const;
             [[nodiscard]]
-            speed
-            operator*(const acceleration& other) const;
+            speed operator*(const acceleration& other) const;
             [[nodiscard]]
-            energy
-            operator*(const power& other) const;
+            energy operator*(const power& other) const;
             [[nodiscard]]
-            momentum
-            operator*(const force& other) const;
+            momentum operator*(const force& other) const;
         };
 
 
@@ -155,12 +162,13 @@ namespace sakurajin {
 
 
         class UNIT_SYSTEM_EXPORT_MACRO length {
-          public:
-            const long double multiplier;
-            long double       value = 0;
-            const long double offset;
-            long double       rel_error = 0.000001;
+          private:
+            long double value = 0;
+            long double multiplier;
+            long double offset;
+            long double rel_error = 0.000001;
 
+          public:
             length();
             length(const length& other) = default;
 
@@ -172,6 +180,16 @@ namespace sakurajin {
             template <std::intmax_t numerator, std::intmax_t denumerator = 1>
             length(long double v, std::ratio<numerator, denumerator> mult, long double off = 0);
 
+
+            long double val() const;
+            long double mult() const;
+            long double off() const;
+            long double rel_err() const;
+
+            long double& val();
+            long double& mult();
+            long double& off();
+            long double& rel_err();
 
             length operator*(long double scalar) const;
             void   operator*=(long double scalar);
@@ -215,19 +233,15 @@ namespace sakurajin {
 
 
             [[nodiscard]]
-            time_si
-            operator/(const speed& other) const;
+            time_si operator/(const speed& other) const;
             [[nodiscard]]
-            speed
-            operator/(const time_si& other) const;
+            speed operator/(const time_si& other) const;
 
 
             [[nodiscard]]
-            area
-            operator*(const length& other) const;
+            area operator*(const length& other) const;
             [[nodiscard]]
-            energy
-            operator*(const force& other) const;
+            energy operator*(const force& other) const;
 
             [[nodiscard]]
             area square() const;
@@ -279,12 +293,13 @@ namespace sakurajin {
 
 
         class UNIT_SYSTEM_EXPORT_MACRO mass {
-          public:
-            const long double multiplier;
-            long double       value = 0;
-            const long double offset;
-            long double       rel_error = 0.000001;
+          private:
+            long double value = 0;
+            long double multiplier;
+            long double offset;
+            long double rel_error = 0.000001;
 
+          public:
             mass();
             mass(const mass& other) = default;
 
@@ -296,6 +311,16 @@ namespace sakurajin {
             template <std::intmax_t numerator, std::intmax_t denumerator = 1>
             mass(long double v, std::ratio<numerator, denumerator> mult, long double off = 0);
 
+
+            long double val() const;
+            long double mult() const;
+            long double off() const;
+            long double rel_err() const;
+
+            long double& val();
+            long double& mult();
+            long double& off();
+            long double& rel_err();
 
             mass operator*(long double scalar) const;
             void operator*=(long double scalar);
@@ -339,11 +364,9 @@ namespace sakurajin {
 
 
             [[nodiscard]]
-            force
-            operator*(const acceleration& other) const;
+            force operator*(const acceleration& other) const;
             [[nodiscard]]
-            momentum
-            operator*(const speed& other) const;
+            momentum operator*(const speed& other) const;
         };
 
 
@@ -388,12 +411,13 @@ namespace sakurajin {
 
 
         class UNIT_SYSTEM_EXPORT_MACRO temperature {
-          public:
-            const long double multiplier;
-            long double       value = 0;
-            const long double offset;
-            long double       rel_error = 0.000001;
+          private:
+            long double value = 0;
+            long double multiplier;
+            long double offset;
+            long double rel_error = 0.000001;
 
+          public:
             temperature();
             temperature(const temperature& other) = default;
 
@@ -405,6 +429,16 @@ namespace sakurajin {
             template <std::intmax_t numerator, std::intmax_t denumerator = 1>
             temperature(long double v, std::ratio<numerator, denumerator> mult, long double off = 0);
 
+
+            long double val() const;
+            long double mult() const;
+            long double off() const;
+            long double rel_err() const;
+
+            long double& val();
+            long double& mult();
+            long double& off();
+            long double& rel_err();
 
             temperature operator*(long double scalar) const;
             void        operator*=(long double scalar);
@@ -468,12 +502,13 @@ namespace sakurajin {
 
 
         class UNIT_SYSTEM_EXPORT_MACRO amount {
-          public:
-            const long double multiplier;
-            long double       value = 0;
-            const long double offset;
-            long double       rel_error = 0.000001;
+          private:
+            long double value = 0;
+            long double multiplier;
+            long double offset;
+            long double rel_error = 0.000001;
 
+          public:
             amount();
             amount(const amount& other) = default;
 
@@ -485,6 +520,16 @@ namespace sakurajin {
             template <std::intmax_t numerator, std::intmax_t denumerator = 1>
             amount(long double v, std::ratio<numerator, denumerator> mult, long double off = 0);
 
+
+            long double val() const;
+            long double mult() const;
+            long double off() const;
+            long double rel_err() const;
+
+            long double& val();
+            long double& mult();
+            long double& off();
+            long double& rel_err();
 
             amount operator*(long double scalar) const;
             void   operator*=(long double scalar);
@@ -548,12 +593,13 @@ namespace sakurajin {
 
 
         class UNIT_SYSTEM_EXPORT_MACRO electric_current {
-          public:
-            const long double multiplier;
-            long double       value = 0;
-            const long double offset;
-            long double       rel_error = 0.000001;
+          private:
+            long double value = 0;
+            long double multiplier;
+            long double offset;
+            long double rel_error = 0.000001;
 
+          public:
             electric_current();
             electric_current(const electric_current& other) = default;
 
@@ -565,6 +611,16 @@ namespace sakurajin {
             template <std::intmax_t numerator, std::intmax_t denumerator = 1>
             electric_current(long double v, std::ratio<numerator, denumerator> mult, long double off = 0);
 
+
+            long double val() const;
+            long double mult() const;
+            long double off() const;
+            long double rel_err() const;
+
+            long double& val();
+            long double& mult();
+            long double& off();
+            long double& rel_err();
 
             electric_current operator*(long double scalar) const;
             void             operator*=(long double scalar);
@@ -662,12 +718,13 @@ namespace sakurajin {
 
 
         class UNIT_SYSTEM_EXPORT_MACRO luminous_intensity {
-          public:
-            const long double multiplier;
-            long double       value = 0;
-            const long double offset;
-            long double       rel_error = 0.000001;
+          private:
+            long double value = 0;
+            long double multiplier;
+            long double offset;
+            long double rel_error = 0.000001;
 
+          public:
             luminous_intensity();
             luminous_intensity(const luminous_intensity& other) = default;
 
@@ -679,6 +736,16 @@ namespace sakurajin {
             template <std::intmax_t numerator, std::intmax_t denumerator = 1>
             luminous_intensity(long double v, std::ratio<numerator, denumerator> mult, long double off = 0);
 
+
+            long double val() const;
+            long double mult() const;
+            long double off() const;
+            long double rel_err() const;
+
+            long double& val();
+            long double& mult();
+            long double& off();
+            long double& rel_err();
 
             luminous_intensity operator*(long double scalar) const;
             void               operator*=(long double scalar);
@@ -743,12 +810,13 @@ namespace sakurajin {
 
 
         class UNIT_SYSTEM_EXPORT_MACRO energy {
-          public:
-            const long double multiplier;
-            long double       value = 0;
-            const long double offset;
-            long double       rel_error = 0.000001;
+          private:
+            long double value = 0;
+            long double multiplier;
+            long double offset;
+            long double rel_error = 0.000001;
 
+          public:
             energy();
             energy(const energy& other) = default;
 
@@ -760,6 +828,16 @@ namespace sakurajin {
             template <std::intmax_t numerator, std::intmax_t denumerator = 1>
             energy(long double v, std::ratio<numerator, denumerator> mult, long double off = 0);
 
+
+            long double val() const;
+            long double mult() const;
+            long double off() const;
+            long double rel_err() const;
+
+            long double& val();
+            long double& mult();
+            long double& off();
+            long double& rel_err();
 
             energy operator*(long double scalar) const;
             void   operator*=(long double scalar);
@@ -803,23 +881,17 @@ namespace sakurajin {
 
 
             [[nodiscard]]
-            length
-            operator/(const force& other) const;
+            length operator/(const force& other) const;
             [[nodiscard]]
-            force
-            operator/(const length& other) const;
+            force operator/(const length& other) const;
             [[nodiscard]]
-            time_si
-            operator/(const power& other) const;
+            time_si operator/(const power& other) const;
             [[nodiscard]]
-            power
-            operator/(const time_si& other) const;
+            power operator/(const time_si& other) const;
             [[nodiscard]]
-            speed
-            operator/(const momentum& other) const;
+            speed operator/(const momentum& other) const;
             [[nodiscard]]
-            momentum
-            operator/(const speed& other) const;
+            momentum operator/(const speed& other) const;
         };
 
 
@@ -936,12 +1008,13 @@ namespace sakurajin {
 
 
         class UNIT_SYSTEM_EXPORT_MACRO power {
-          public:
-            const long double multiplier;
-            long double       value = 0;
-            const long double offset;
-            long double       rel_error = 0.000001;
+          private:
+            long double value = 0;
+            long double multiplier;
+            long double offset;
+            long double rel_error = 0.000001;
 
+          public:
             power();
             power(const power& other) = default;
 
@@ -953,6 +1026,16 @@ namespace sakurajin {
             template <std::intmax_t numerator, std::intmax_t denumerator = 1>
             power(long double v, std::ratio<numerator, denumerator> mult, long double off = 0);
 
+
+            long double val() const;
+            long double mult() const;
+            long double off() const;
+            long double rel_err() const;
+
+            long double& val();
+            long double& mult();
+            long double& off();
+            long double& rel_err();
 
             power operator*(long double scalar) const;
             void  operator*=(long double scalar);
@@ -996,16 +1079,13 @@ namespace sakurajin {
 
 
             [[nodiscard]]
-            speed
-            operator/(const force& other) const;
+            speed operator/(const force& other) const;
             [[nodiscard]]
-            force
-            operator/(const speed& other) const;
+            force operator/(const speed& other) const;
 
 
             [[nodiscard]]
-            energy
-            operator*(const time_si& other) const;
+            energy operator*(const time_si& other) const;
         };
 
 
@@ -1059,12 +1139,13 @@ namespace sakurajin {
 
 
         class UNIT_SYSTEM_EXPORT_MACRO speed {
-          public:
-            const long double multiplier;
-            long double       value = 0;
-            const long double offset;
-            long double       rel_error = 0.000001;
+          private:
+            long double value = 0;
+            long double multiplier;
+            long double offset;
+            long double rel_error = 0.000001;
 
+          public:
             speed();
             speed(const speed& other) = default;
 
@@ -1076,6 +1157,16 @@ namespace sakurajin {
             template <std::intmax_t numerator, std::intmax_t denumerator = 1>
             speed(long double v, std::ratio<numerator, denumerator> mult, long double off = 0);
 
+
+            long double val() const;
+            long double mult() const;
+            long double off() const;
+            long double rel_err() const;
+
+            long double& val();
+            long double& mult();
+            long double& off();
+            long double& rel_err();
 
             speed operator*(long double scalar) const;
             void  operator*=(long double scalar);
@@ -1119,25 +1210,19 @@ namespace sakurajin {
 
 
             [[nodiscard]]
-            time_si
-            operator/(const acceleration& other) const;
+            time_si operator/(const acceleration& other) const;
             [[nodiscard]]
-            acceleration
-            operator/(const time_si& other) const;
+            acceleration operator/(const time_si& other) const;
 
 
             [[nodiscard]]
-            length
-            operator*(const time_si& other) const;
+            length operator*(const time_si& other) const;
             [[nodiscard]]
-            energy
-            operator*(const momentum& other) const;
+            energy operator*(const momentum& other) const;
             [[nodiscard]]
-            momentum
-            operator*(const mass& other) const;
+            momentum operator*(const mass& other) const;
             [[nodiscard]]
-            power
-            operator*(const force& other) const;
+            power operator*(const force& other) const;
         };
 
 
@@ -1161,12 +1246,13 @@ namespace sakurajin {
 
 
         class UNIT_SYSTEM_EXPORT_MACRO acceleration {
-          public:
-            const long double multiplier;
-            long double       value = 0;
-            const long double offset;
-            long double       rel_error = 0.000001;
+          private:
+            long double value = 0;
+            long double multiplier;
+            long double offset;
+            long double rel_error = 0.000001;
 
+          public:
             acceleration();
             acceleration(const acceleration& other) = default;
 
@@ -1178,6 +1264,16 @@ namespace sakurajin {
             template <std::intmax_t numerator, std::intmax_t denumerator = 1>
             acceleration(long double v, std::ratio<numerator, denumerator> mult, long double off = 0);
 
+
+            long double val() const;
+            long double mult() const;
+            long double off() const;
+            long double rel_err() const;
+
+            long double& val();
+            long double& mult();
+            long double& off();
+            long double& rel_err();
 
             acceleration operator*(long double scalar) const;
             void         operator*=(long double scalar);
@@ -1221,11 +1317,9 @@ namespace sakurajin {
 
 
             [[nodiscard]]
-            speed
-            operator*(const time_si& other) const;
+            speed operator*(const time_si& other) const;
             [[nodiscard]]
-            force
-            operator*(const mass& other) const;
+            force operator*(const mass& other) const;
         };
 
 
@@ -1251,12 +1345,13 @@ namespace sakurajin {
 
 
         class UNIT_SYSTEM_EXPORT_MACRO area {
-          public:
-            const long double multiplier;
-            long double       value = 0;
-            const long double offset;
-            long double       rel_error = 0.000001;
+          private:
+            long double value = 0;
+            long double multiplier;
+            long double offset;
+            long double rel_error = 0.000001;
 
+          public:
             area();
             area(const area& other) = default;
 
@@ -1268,6 +1363,16 @@ namespace sakurajin {
             template <std::intmax_t numerator, std::intmax_t denumerator = 1>
             area(long double v, std::ratio<numerator, denumerator> mult, long double off = 0);
 
+
+            long double val() const;
+            long double mult() const;
+            long double off() const;
+            long double rel_err() const;
+
+            long double& val();
+            long double& mult();
+            long double& off();
+            long double& rel_err();
 
             area operator*(long double scalar) const;
             void operator*=(long double scalar);
@@ -1311,8 +1416,7 @@ namespace sakurajin {
 
 
             [[nodiscard]]
-            length
-            operator/(const length& other) const;
+            length operator/(const length& other) const;
 
 
             [[nodiscard]]
@@ -1356,12 +1460,13 @@ namespace sakurajin {
 
 
         class UNIT_SYSTEM_EXPORT_MACRO force {
-          public:
-            const long double multiplier;
-            long double       value = 0;
-            const long double offset;
-            long double       rel_error = 0.000001;
+          private:
+            long double value = 0;
+            long double multiplier;
+            long double offset;
+            long double rel_error = 0.000001;
 
+          public:
             force();
             force(const force& other) = default;
 
@@ -1373,6 +1478,16 @@ namespace sakurajin {
             template <std::intmax_t numerator, std::intmax_t denumerator = 1>
             force(long double v, std::ratio<numerator, denumerator> mult, long double off = 0);
 
+
+            long double val() const;
+            long double mult() const;
+            long double off() const;
+            long double rel_err() const;
+
+            long double& val();
+            long double& mult();
+            long double& off();
+            long double& rel_err();
 
             force operator*(long double scalar) const;
             void  operator*=(long double scalar);
@@ -1416,22 +1531,17 @@ namespace sakurajin {
 
 
             [[nodiscard]]
-            acceleration
-            operator/(const mass& other) const;
+            acceleration operator/(const mass& other) const;
             [[nodiscard]]
-            mass
-            operator/(const acceleration& other) const;
+            mass operator/(const acceleration& other) const;
 
 
             [[nodiscard]]
-            energy
-            operator*(const length& other) const;
+            energy operator*(const length& other) const;
             [[nodiscard]]
-            momentum
-            operator*(const time_si& other) const;
+            momentum operator*(const time_si& other) const;
             [[nodiscard]]
-            power
-            operator*(const speed& other) const;
+            power operator*(const speed& other) const;
         };
 
 
@@ -1485,12 +1595,13 @@ namespace sakurajin {
 
 
         class UNIT_SYSTEM_EXPORT_MACRO momentum {
-          public:
-            const long double multiplier;
-            long double       value = 0;
-            const long double offset;
-            long double       rel_error = 0.000001;
+          private:
+            long double value = 0;
+            long double multiplier;
+            long double offset;
+            long double rel_error = 0.000001;
 
+          public:
             momentum();
             momentum(const momentum& other) = default;
 
@@ -1502,6 +1613,16 @@ namespace sakurajin {
             template <std::intmax_t numerator, std::intmax_t denumerator = 1>
             momentum(long double v, std::ratio<numerator, denumerator> mult, long double off = 0);
 
+
+            long double val() const;
+            long double mult() const;
+            long double off() const;
+            long double rel_err() const;
+
+            long double& val();
+            long double& mult();
+            long double& off();
+            long double& rel_err();
 
             momentum operator*(long double scalar) const;
             void     operator*=(long double scalar);
@@ -1545,22 +1666,17 @@ namespace sakurajin {
 
 
             [[nodiscard]]
-            time_si
-            operator/(const force& other) const;
+            time_si operator/(const force& other) const;
             [[nodiscard]]
-            force
-            operator/(const time_si& other) const;
+            force operator/(const time_si& other) const;
             [[nodiscard]]
-            speed
-            operator/(const mass& other) const;
+            speed operator/(const mass& other) const;
             [[nodiscard]]
-            mass
-            operator/(const speed& other) const;
+            mass operator/(const speed& other) const;
 
 
             [[nodiscard]]
-            energy
-            operator*(const speed& other) const;
+            energy operator*(const speed& other) const;
         };
 
 
@@ -1683,5 +1799,5 @@ namespace sakurajin {
             const long double waterFreezingPoint = 273.15;
 
         } // namespace constants
-    }     // namespace unit_system
+    } // namespace unit_system
 } // namespace sakurajin

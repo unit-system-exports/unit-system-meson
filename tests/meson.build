@@ -1,9 +1,9 @@
 #make both dependencies into one array
 deps = [
     dependency('unit-system', required: true),
-    dependency('gtest', required: true, fallback:['gtest','gtest_dep'])
+    dependency('gtest', required: true, fallback:['gtest','gtest_dep']),
 ]
-
+    
 tests = [
     'unit_test',
     'base_units_test',

@@ -8,9 +8,36 @@ sakurajin::unit_system::speed::speed(long double v)
 sakurajin::unit_system::speed::speed(long double v, long double mult)
     : speed{v, mult, 0} {}
 sakurajin::unit_system::speed::speed(long double v, long double mult, long double off)
-    : multiplier{mult},
-      value{v},
+    : value{v},
+      multiplier{mult},
       offset{off} {}
+
+
+long double sakurajin::unit_system::speed::mult() const {
+    return multiplier;
+}
+long double sakurajin::unit_system::speed::val() const {
+    return value;
+}
+long double sakurajin::unit_system::speed::off() const {
+    return offset;
+}
+long double sakurajin::unit_system::speed::rel_err() const {
+    return rel_error;
+}
+
+long double& sakurajin::unit_system::speed::mult() {
+    return multiplier;
+}
+long double& sakurajin::unit_system::speed::val() {
+    return value;
+}
+long double& sakurajin::unit_system::speed::off() {
+    return offset;
+}
+long double& sakurajin::unit_system::speed::rel_err() {
+    return rel_error;
+}
 
 // const functions
 sakurajin::unit_system::speed sakurajin::unit_system::speed::operator*(long double scalar) const {
@@ -18,11 +45,11 @@ sakurajin::unit_system::speed sakurajin::unit_system::speed::operator*(long doub
 }
 
 sakurajin::unit_system::speed operator*(long double scalar, const sakurajin::unit_system::speed& val) {
-    return sakurajin::unit_system::speed{val.value * scalar, val.multiplier, val.offset};
+    return sakurajin::unit_system::speed{val.val() * scalar, val.mult(), val.off()};
 }
 
 long double sakurajin::unit_system::speed::operator/(const sakurajin::unit_system::speed& other) const {
-    return value / other.convert_like(*this).value;
+    return value / other.convert_like(*this).val();
 }
 
 sakurajin::unit_system::speed sakurajin::unit_system::speed::operator/(long double scalar) const {
@@ -31,13 +58,13 @@ sakurajin::unit_system::speed sakurajin::unit_system::speed::operator/(long doub
 
 sakurajin::unit_system::speed sakurajin::unit_system::speed::operator+(const sakurajin::unit_system::speed& other) const {
     auto retval = convert_like(other);
-    retval.value += other.value;
+    retval.val() += other.val();
     return retval;
 }
 
 sakurajin::unit_system::speed sakurajin::unit_system::speed::operator-(const sakurajin::unit_system::speed& other) const {
     auto retval = convert_like(other);
-    retval.value -= other.value;
+    retval.val() -= other.val();
     return retval;
 }
 
@@ -46,7 +73,7 @@ sakurajin::unit_system::speed sakurajin::unit_system::speed::operator-() const {
 }
 
 sakurajin::unit_system::speed::operator long double() const {
-    return convert_copy(1, 0).value;
+    return convert_copy(1, 0).val();
 }
 
 sakurajin::unit_system::speed sakurajin::unit_system::speed::convert_multiplier(long double new_multiplier) const {
@@ -84,27 +111,27 @@ int sakurajin::unit_system::speed::operator<=>(const sakurajin::unit_system::spe
 #endif
 bool sakurajin::unit_system::speed::operator<(const sakurajin::unit_system::speed& other) const {
     const auto retval = sakurajin::unit_system::unit_cast(other, multiplier, offset);
-    return value < retval.value;
+    return value < retval.val();
 }
 
 bool sakurajin::unit_system::speed::operator>(const sakurajin::unit_system::speed& other) const {
     const auto retval = sakurajin::unit_system::unit_cast(other, multiplier, offset);
-    return value > retval.value;
+    return value > retval.val();
 }
 
 bool sakurajin::unit_system::speed::operator<=(const sakurajin::unit_system::speed& other) const {
     const auto retval = sakurajin::unit_system::unit_cast(other, multiplier, offset);
-    return value <= retval.value;
+    return value <= retval.val();
 }
 
 bool sakurajin::unit_system::speed::operator>=(const sakurajin::unit_system::speed& other) const {
     const auto retval = sakurajin::unit_system::unit_cast(other, multiplier, offset);
-    return value >= retval.value;
+    return value >= retval.val();
 }
 
 bool sakurajin::unit_system::speed::operator==(const sakurajin::unit_system::speed& other) const {
     const auto retval = sakurajin::unit_system::unit_cast(other, multiplier, offset);
-    return value == retval.value;
+    return value == retval.val();
 }
 
 bool sakurajin::unit_system::speed::operator!=(const sakurajin::unit_system::speed& other) const {
@@ -122,55 +149,55 @@ void sakurajin::unit_system::speed::operator/=(long double scalar) {
 
 void sakurajin::unit_system::speed::operator+=(const sakurajin::unit_system::speed& other) {
     const auto otherVal = sakurajin::unit_system::unit_cast(other, multiplier, offset);
-    value += otherVal.value;
+    value += otherVal.val();
 }
 
 void sakurajin::unit_system::speed::operator-=(const sakurajin::unit_system::speed& other) {
     const auto otherVal = sakurajin::unit_system::unit_cast(other, multiplier, offset);
-    value -= otherVal.value;
+    value -= otherVal.val();
 }
 
 void sakurajin::unit_system::speed::operator=(const sakurajin::unit_system::speed& other) {
     const auto otherVal = sakurajin::unit_system::unit_cast(other, multiplier, offset);
-    value               = otherVal.value;
+    value               = otherVal.val();
 }
 
 
 sakurajin::unit_system::time_si sakurajin::unit_system::speed::operator/(const sakurajin::unit_system::acceleration& other) const {
     sakurajin::unit_system::speed        _v1 = convert_offset(0);
     sakurajin::unit_system::acceleration _v2 = other.convert_offset(0);
-    return sakurajin::unit_system::time_si{_v1.value / _v2.value, _v1.multiplier / _v2.multiplier};
+    return sakurajin::unit_system::time_si{_v1.val() / _v2.val(), _v1.mult() / _v2.mult()};
 }
 
 sakurajin::unit_system::acceleration sakurajin::unit_system::speed::operator/(const sakurajin::unit_system::time_si& other) const {
     sakurajin::unit_system::speed   _v1 = convert_offset(0);
     sakurajin::unit_system::time_si _v2 = other.convert_offset(0);
-    return sakurajin::unit_system::acceleration{_v1.value / _v2.value, _v1.multiplier / _v2.multiplier};
+    return sakurajin::unit_system::acceleration{_v1.val() / _v2.val(), _v1.mult() / _v2.mult()};
 }
 
 
 sakurajin::unit_system::length sakurajin::unit_system::speed::operator*(const sakurajin::unit_system::time_si& other) const {
     sakurajin::unit_system::speed   _v1 = convert_offset(0);
     sakurajin::unit_system::time_si _v2 = other.convert_offset(0);
-    return sakurajin::unit_system::length{_v1.value * _v2.value, _v1.multiplier * _v2.multiplier};
+    return sakurajin::unit_system::length{_v1.val() * _v2.val(), _v1.mult() * _v2.mult()};
 }
 
 sakurajin::unit_system::energy sakurajin::unit_system::speed::operator*(const sakurajin::unit_system::momentum& other) const {
     sakurajin::unit_system::speed    _v1 = convert_offset(0);
     sakurajin::unit_system::momentum _v2 = other.convert_offset(0);
-    return sakurajin::unit_system::energy{_v1.value * _v2.value, _v1.multiplier * _v2.multiplier};
+    return sakurajin::unit_system::energy{_v1.val() * _v2.val(), _v1.mult() * _v2.mult()};
 }
 
 sakurajin::unit_system::momentum sakurajin::unit_system::speed::operator*(const sakurajin::unit_system::mass& other) const {
     sakurajin::unit_system::speed _v1 = convert_offset(0);
     sakurajin::unit_system::mass  _v2 = other.convert_offset(0);
-    return sakurajin::unit_system::momentum{_v1.value * _v2.value, _v1.multiplier * _v2.multiplier};
+    return sakurajin::unit_system::momentum{_v1.val() * _v2.val(), _v1.mult() * _v2.mult()};
 }
 
 sakurajin::unit_system::power sakurajin::unit_system::speed::operator*(const sakurajin::unit_system::force& other) const {
     sakurajin::unit_system::speed _v1 = convert_offset(0);
     sakurajin::unit_system::force _v2 = other.convert_offset(0);
-    return sakurajin::unit_system::power{_v1.value * _v2.value, _v1.multiplier * _v2.multiplier};
+    return sakurajin::unit_system::power{_v1.val() * _v2.val(), _v1.mult() * _v2.mult()};
 }
 
 
@@ -189,11 +216,11 @@ sakurajin::unit_system::unit_cast(const sakurajin::unit_system::speed& unit, lon
 sakurajin::unit_system::speed sakurajin::unit_system::clamp(const sakurajin::unit_system::speed& unit,
                                                             const sakurajin::unit_system::speed& lower,
                                                             const sakurajin::unit_system::speed& upper) {
-    auto _lower = unit_cast(lower, unit.multiplier, unit.offset);
-    auto _upper = unit_cast(upper, unit.multiplier, unit.offset);
+    auto _lower = unit_cast(lower, unit.mult(), unit.off());
+    auto _upper = unit_cast(upper, unit.mult(), unit.off());
 
-    auto val = unit.value > _lower.value ? (unit.value < _upper.value ? unit.value : _upper.value) : _lower.value;
-    return sakurajin::unit_system::speed{val, unit.multiplier, unit.offset};
+    auto val = unit.val() > _lower.val() ? (unit.val() < _upper.val() ? unit.val() : _upper.val()) : _lower.val();
+    return sakurajin::unit_system::speed{val, unit.mult(), unit.off()};
 }
 
 
@@ -204,7 +231,7 @@ sakurajin::unit_system::speed std::abs(const sakurajin::unit_system::speed& unit
 
 std::ostream& sakurajin::unit_system::operator<<(std::ostream& os, const sakurajin::unit_system::speed& t) {
     auto t1 = sakurajin::unit_system::unit_cast(t, 1);
-    return os << t1.value << " metre per second";
+    return os << t1.val() << " metre per second";
 }
 
 

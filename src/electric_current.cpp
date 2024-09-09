@@ -8,9 +8,36 @@ sakurajin::unit_system::electric_current::electric_current(long double v)
 sakurajin::unit_system::electric_current::electric_current(long double v, long double mult)
     : electric_current{v, mult, 0} {}
 sakurajin::unit_system::electric_current::electric_current(long double v, long double mult, long double off)
-    : multiplier{mult},
-      value{v},
+    : value{v},
+      multiplier{mult},
       offset{off} {}
+
+
+long double sakurajin::unit_system::electric_current::mult() const {
+    return multiplier;
+}
+long double sakurajin::unit_system::electric_current::val() const {
+    return value;
+}
+long double sakurajin::unit_system::electric_current::off() const {
+    return offset;
+}
+long double sakurajin::unit_system::electric_current::rel_err() const {
+    return rel_error;
+}
+
+long double& sakurajin::unit_system::electric_current::mult() {
+    return multiplier;
+}
+long double& sakurajin::unit_system::electric_current::val() {
+    return value;
+}
+long double& sakurajin::unit_system::electric_current::off() {
+    return offset;
+}
+long double& sakurajin::unit_system::electric_current::rel_err() {
+    return rel_error;
+}
 
 // const functions
 sakurajin::unit_system::electric_current sakurajin::unit_system::electric_current::operator*(long double scalar) const {
@@ -18,11 +45,11 @@ sakurajin::unit_system::electric_current sakurajin::unit_system::electric_curren
 }
 
 sakurajin::unit_system::electric_current operator*(long double scalar, const sakurajin::unit_system::electric_current& val) {
-    return sakurajin::unit_system::electric_current{val.value * scalar, val.multiplier, val.offset};
+    return sakurajin::unit_system::electric_current{val.val() * scalar, val.mult(), val.off()};
 }
 
 long double sakurajin::unit_system::electric_current::operator/(const sakurajin::unit_system::electric_current& other) const {
-    return value / other.convert_like(*this).value;
+    return value / other.convert_like(*this).val();
 }
 
 sakurajin::unit_system::electric_current sakurajin::unit_system::electric_current::operator/(long double scalar) const {
@@ -32,14 +59,14 @@ sakurajin::unit_system::electric_current sakurajin::unit_system::electric_curren
 sakurajin::unit_system::electric_current
 sakurajin::unit_system::electric_current::operator+(const sakurajin::unit_system::electric_current& other) const {
     auto retval = convert_like(other);
-    retval.value += other.value;
+    retval.val() += other.val();
     return retval;
 }
 
 sakurajin::unit_system::electric_current
 sakurajin::unit_system::electric_current::operator-(const sakurajin::unit_system::electric_current& other) const {
     auto retval = convert_like(other);
-    retval.value -= other.value;
+    retval.val() -= other.val();
     return retval;
 }
 
@@ -48,7 +75,7 @@ sakurajin::unit_system::electric_current sakurajin::unit_system::electric_curren
 }
 
 sakurajin::unit_system::electric_current::operator long double() const {
-    return convert_copy(1, 0).value;
+    return convert_copy(1, 0).val();
 }
 
 sakurajin::unit_system::electric_current sakurajin::unit_system::electric_current::convert_multiplier(long double new_multiplier) const {
@@ -88,27 +115,27 @@ int sakurajin::unit_system::electric_current::operator<=>(const sakurajin::unit_
 #endif
 bool sakurajin::unit_system::electric_current::operator<(const sakurajin::unit_system::electric_current& other) const {
     const auto retval = sakurajin::unit_system::unit_cast(other, multiplier, offset);
-    return value < retval.value;
+    return value < retval.val();
 }
 
 bool sakurajin::unit_system::electric_current::operator>(const sakurajin::unit_system::electric_current& other) const {
     const auto retval = sakurajin::unit_system::unit_cast(other, multiplier, offset);
-    return value > retval.value;
+    return value > retval.val();
 }
 
 bool sakurajin::unit_system::electric_current::operator<=(const sakurajin::unit_system::electric_current& other) const {
     const auto retval = sakurajin::unit_system::unit_cast(other, multiplier, offset);
-    return value <= retval.value;
+    return value <= retval.val();
 }
 
 bool sakurajin::unit_system::electric_current::operator>=(const sakurajin::unit_system::electric_current& other) const {
     const auto retval = sakurajin::unit_system::unit_cast(other, multiplier, offset);
-    return value >= retval.value;
+    return value >= retval.val();
 }
 
 bool sakurajin::unit_system::electric_current::operator==(const sakurajin::unit_system::electric_current& other) const {
     const auto retval = sakurajin::unit_system::unit_cast(other, multiplier, offset);
-    return value == retval.value;
+    return value == retval.val();
 }
 
 bool sakurajin::unit_system::electric_current::operator!=(const sakurajin::unit_system::electric_current& other) const {
@@ -126,17 +153,17 @@ void sakurajin::unit_system::electric_current::operator/=(long double scalar) {
 
 void sakurajin::unit_system::electric_current::operator+=(const sakurajin::unit_system::electric_current& other) {
     const auto otherVal = sakurajin::unit_system::unit_cast(other, multiplier, offset);
-    value += otherVal.value;
+    value += otherVal.val();
 }
 
 void sakurajin::unit_system::electric_current::operator-=(const sakurajin::unit_system::electric_current& other) {
     const auto otherVal = sakurajin::unit_system::unit_cast(other, multiplier, offset);
-    value -= otherVal.value;
+    value -= otherVal.val();
 }
 
 void sakurajin::unit_system::electric_current::operator=(const sakurajin::unit_system::electric_current& other) {
     const auto otherVal = sakurajin::unit_system::unit_cast(other, multiplier, offset);
-    value               = otherVal.value;
+    value               = otherVal.val();
 }
 
 
@@ -157,11 +184,11 @@ sakurajin::unit_system::electric_current sakurajin::unit_system::unit_cast(const
 sakurajin::unit_system::electric_current sakurajin::unit_system::clamp(const sakurajin::unit_system::electric_current& unit,
                                                                        const sakurajin::unit_system::electric_current& lower,
                                                                        const sakurajin::unit_system::electric_current& upper) {
-    auto _lower = unit_cast(lower, unit.multiplier, unit.offset);
-    auto _upper = unit_cast(upper, unit.multiplier, unit.offset);
+    auto _lower = unit_cast(lower, unit.mult(), unit.off());
+    auto _upper = unit_cast(upper, unit.mult(), unit.off());
 
-    auto val = unit.value > _lower.value ? (unit.value < _upper.value ? unit.value : _upper.value) : _lower.value;
-    return sakurajin::unit_system::electric_current{val, unit.multiplier, unit.offset};
+    auto val = unit.val() > _lower.val() ? (unit.val() < _upper.val() ? unit.val() : _upper.val()) : _lower.val();
+    return sakurajin::unit_system::electric_current{val, unit.mult(), unit.off()};
 }
 
 
@@ -172,7 +199,7 @@ sakurajin::unit_system::electric_current std::abs(const sakurajin::unit_system::
 
 std::ostream& sakurajin::unit_system::operator<<(std::ostream& os, const sakurajin::unit_system::electric_current& t) {
     auto t1 = sakurajin::unit_system::unit_cast(t, 1);
-    return os << t1.value << " Ampere";
+    return os << t1.val() << " Ampere";
 }
 
 

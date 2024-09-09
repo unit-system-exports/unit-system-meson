@@ -7,7 +7,6 @@ NamespaceIndentation: All
 ColumnLimit: 140
 AlwaysBreakTemplateDeclarations: Yes
 PointerAlignment: Left
-MaxEmptyLinesToKeep: 2
 AllowAllParametersOfDeclarationOnNextLine: false
 BinPackParameters: false
 BinPackArguments: false
@@ -24,4 +23,5 @@ IndentPPDirectives: BeforeHash
 IndentCaseLabels: true
 AlignArrayOfStructures: Right
 BreakArrays: false
+MaxEmptyLinesToKeep: 2
 Standard: c++20

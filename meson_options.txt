@@ -1,1 +1,2 @@
 option('build_tests', type : 'feature', value : 'auto', description: 'disable to not build tests when compiling directly. enable to also build tests if built as subproject')
+option('use_cpp_17', type : 'feature', value : 'auto', description: 'force the use of the c++17 variant if enabled, the c++20 version if disabled and auto detect based on cpp_std if auto.')

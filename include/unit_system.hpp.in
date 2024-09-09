@@ -1,0 +1,9 @@
+#pragma once
+
+#mesondefine USE_CPP_17
+
+#ifdef USE_CPP_17
+#include "unit_system_17.hpp"
+#else
+#include "unit_system_20.hpp"
+#endif

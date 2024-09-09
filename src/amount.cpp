@@ -8,9 +8,36 @@ sakurajin::unit_system::amount::amount(long double v)
 sakurajin::unit_system::amount::amount(long double v, long double mult)
     : amount{v, mult, 0} {}
 sakurajin::unit_system::amount::amount(long double v, long double mult, long double off)
-    : multiplier{mult},
-      value{v},
+    : value{v},
+      multiplier{mult},
       offset{off} {}
+
+
+long double sakurajin::unit_system::amount::mult() const {
+    return multiplier;
+}
+long double sakurajin::unit_system::amount::val() const {
+    return value;
+}
+long double sakurajin::unit_system::amount::off() const {
+    return offset;
+}
+long double sakurajin::unit_system::amount::rel_err() const {
+    return rel_error;
+}
+
+long double& sakurajin::unit_system::amount::mult() {
+    return multiplier;
+}
+long double& sakurajin::unit_system::amount::val() {
+    return value;
+}
+long double& sakurajin::unit_system::amount::off() {
+    return offset;
+}
+long double& sakurajin::unit_system::amount::rel_err() {
+    return rel_error;
+}
 
 // const functions
 sakurajin::unit_system::amount sakurajin::unit_system::amount::operator*(long double scalar) const {
@@ -18,11 +45,11 @@ sakurajin::unit_system::amount sakurajin::unit_system::amount::operator*(long do
 }
 
 sakurajin::unit_system::amount operator*(long double scalar, const sakurajin::unit_system::amount& val) {
-    return sakurajin::unit_system::amount{val.value * scalar, val.multiplier, val.offset};
+    return sakurajin::unit_system::amount{val.val() * scalar, val.mult(), val.off()};
 }
 
 long double sakurajin::unit_system::amount::operator/(const sakurajin::unit_system::amount& other) const {
-    return value / other.convert_like(*this).value;
+    return value / other.convert_like(*this).val();
 }
 
 sakurajin::unit_system::amount sakurajin::unit_system::amount::operator/(long double scalar) const {
@@ -31,13 +58,13 @@ sakurajin::unit_system::amount sakurajin::unit_system::amount::operator/(long do
 
 sakurajin::unit_system::amount sakurajin::unit_system::amount::operator+(const sakurajin::unit_system::amount& other) const {
     auto retval = convert_like(other);
-    retval.value += other.value;
+    retval.val() += other.val();
     return retval;
 }
 
 sakurajin::unit_system::amount sakurajin::unit_system::amount::operator-(const sakurajin::unit_system::amount& other) const {
     auto retval = convert_like(other);
-    retval.value -= other.value;
+    retval.val() -= other.val();
     return retval;
 }
 
@@ -46,7 +73,7 @@ sakurajin::unit_system::amount sakurajin::unit_system::amount::operator-() const
 }
 
 sakurajin::unit_system::amount::operator long double() const {
-    return convert_copy(1, 0).value;
+    return convert_copy(1, 0).val();
 }
 
 sakurajin::unit_system::amount sakurajin::unit_system::amount::convert_multiplier(long double new_multiplier) const {
@@ -84,27 +111,27 @@ int sakurajin::unit_system::amount::operator<=>(const sakurajin::unit_system::am
 #endif
 bool sakurajin::unit_system::amount::operator<(const sakurajin::unit_system::amount& other) const {
     const auto retval = sakurajin::unit_system::unit_cast(other, multiplier, offset);
-    return value < retval.value;
+    return value < retval.val();
 }
 
 bool sakurajin::unit_system::amount::operator>(const sakurajin::unit_system::amount& other) const {
     const auto retval = sakurajin::unit_system::unit_cast(other, multiplier, offset);
-    return value > retval.value;
+    return value > retval.val();
 }
 
 bool sakurajin::unit_system::amount::operator<=(const sakurajin::unit_system::amount& other) const {
     const auto retval = sakurajin::unit_system::unit_cast(other, multiplier, offset);
-    return value <= retval.value;
+    return value <= retval.val();
 }
 
 bool sakurajin::unit_system::amount::operator>=(const sakurajin::unit_system::amount& other) const {
     const auto retval = sakurajin::unit_system::unit_cast(other, multiplier, offset);
-    return value >= retval.value;
+    return value >= retval.val();
 }
 
 bool sakurajin::unit_system::amount::operator==(const sakurajin::unit_system::amount& other) const {
     const auto retval = sakurajin::unit_system::unit_cast(other, multiplier, offset);
-    return value == retval.value;
+    return value == retval.val();
 }
 
 bool sakurajin::unit_system::amount::operator!=(const sakurajin::unit_system::amount& other) const {
@@ -122,17 +149,17 @@ void sakurajin::unit_system::amount::operator/=(long double scalar) {
 
 void sakurajin::unit_system::amount::operator+=(const sakurajin::unit_system::amount& other) {
     const auto otherVal = sakurajin::unit_system::unit_cast(other, multiplier, offset);
-    value += otherVal.value;
+    value += otherVal.val();
 }
 
 void sakurajin::unit_system::amount::operator-=(const sakurajin::unit_system::amount& other) {
     const auto otherVal = sakurajin::unit_system::unit_cast(other, multiplier, offset);
-    value -= otherVal.value;
+    value -= otherVal.val();
 }
 
 void sakurajin::unit_system::amount::operator=(const sakurajin::unit_system::amount& other) {
     const auto otherVal = sakurajin::unit_system::unit_cast(other, multiplier, offset);
-    value               = otherVal.value;
+    value               = otherVal.val();
 }
 
 
@@ -151,11 +178,11 @@ sakurajin::unit_system::unit_cast(const sakurajin::unit_system::amount& unit, lo
 sakurajin::unit_system::amount sakurajin::unit_system::clamp(const sakurajin::unit_system::amount& unit,
                                                              const sakurajin::unit_system::amount& lower,
                                                              const sakurajin::unit_system::amount& upper) {
-    auto _lower = unit_cast(lower, unit.multiplier, unit.offset);
-    auto _upper = unit_cast(upper, unit.multiplier, unit.offset);
+    auto _lower = unit_cast(lower, unit.mult(), unit.off());
+    auto _upper = unit_cast(upper, unit.mult(), unit.off());
 
-    auto val = unit.value > _lower.value ? (unit.value < _upper.value ? unit.value : _upper.value) : _lower.value;
-    return sakurajin::unit_system::amount{val, unit.multiplier, unit.offset};
+    auto val = unit.val() > _lower.val() ? (unit.val() < _upper.val() ? unit.val() : _upper.val()) : _lower.val();
+    return sakurajin::unit_system::amount{val, unit.mult(), unit.off()};
 }
 
 
@@ -166,7 +193,7 @@ sakurajin::unit_system::amount std::abs(const sakurajin::unit_system::amount& un
 
 std::ostream& sakurajin::unit_system::operator<<(std::ostream& os, const sakurajin::unit_system::amount& t) {
     auto t1 = sakurajin::unit_system::unit_cast(t, 1);
-    return os << t1.value << " things";
+    return os << t1.val() << " things";
 }
 
 

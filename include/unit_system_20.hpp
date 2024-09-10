@@ -175,7 +175,7 @@ namespace sakurajin {
         template <std::floating_point base_type>
         std::ostream& operator<<(std::ostream& os, const time_si_t<base_type>& val) {
             auto val_raw = val.convert_copy(1.0, 0.0);
-            return os << val_raw.val() << " ";
+            return os << val_raw.val() << " second";
         }
 
 
@@ -328,7 +328,7 @@ namespace sakurajin {
         template <std::floating_point base_type>
         std::ostream& operator<<(std::ostream& os, const length_t<base_type>& val) {
             auto val_raw = val.convert_copy(1.0, 0.0);
-            return os << val_raw.val() << " ";
+            return os << val_raw.val() << " metre";
         }
 
 
@@ -481,7 +481,7 @@ namespace sakurajin {
         template <std::floating_point base_type>
         std::ostream& operator<<(std::ostream& os, const mass_t<base_type>& val) {
             auto val_raw = val.convert_copy(1.0, 0.0);
-            return os << val_raw.val() << " ";
+            return os << val_raw.val() << " kilogram";
         }
 
 
@@ -635,7 +635,7 @@ namespace sakurajin {
         template <std::floating_point base_type>
         std::ostream& operator<<(std::ostream& os, const temperature_t<base_type>& val) {
             auto val_raw = val.convert_copy(1.0, 0.0);
-            return os << val_raw.val() << " ";
+            return os << val_raw.val() << " Kelvin";
         }
 
 
@@ -788,7 +788,7 @@ namespace sakurajin {
         template <std::floating_point base_type>
         std::ostream& operator<<(std::ostream& os, const amount_t<base_type>& val) {
             auto val_raw = val.convert_copy(1.0, 0.0);
-            return os << val_raw.val() << " ";
+            return os << val_raw.val() << " things";
         }
 
 
@@ -944,7 +944,7 @@ namespace sakurajin {
         template <std::floating_point base_type>
         std::ostream& operator<<(std::ostream& os, const electric_current_t<base_type>& val) {
             auto val_raw = val.convert_copy(1.0, 0.0);
-            return os << val_raw.val() << " ";
+            return os << val_raw.val() << " Ampere";
         }
 
 
@@ -1100,7 +1100,7 @@ namespace sakurajin {
         template <std::floating_point base_type>
         std::ostream& operator<<(std::ostream& os, const luminous_intensity_t<base_type>& val) {
             auto val_raw = val.convert_copy(1.0, 0.0);
-            return os << val_raw.val() << " ";
+            return os << val_raw.val() << " candela";
         }
 
 
@@ -1253,7 +1253,7 @@ namespace sakurajin {
         template <std::floating_point base_type>
         std::ostream& operator<<(std::ostream& os, const energy_t<base_type>& val) {
             auto val_raw = val.convert_copy(1.0, 0.0);
-            return os << val_raw.val() << " ";
+            return os << val_raw.val() << " Joules";
         }
 
 
@@ -1406,7 +1406,7 @@ namespace sakurajin {
         template <std::floating_point base_type>
         std::ostream& operator<<(std::ostream& os, const power_t<base_type>& val) {
             auto val_raw = val.convert_copy(1.0, 0.0);
-            return os << val_raw.val() << " ";
+            return os << val_raw.val() << " Watt";
         }
 
 
@@ -1559,7 +1559,7 @@ namespace sakurajin {
         template <std::floating_point base_type>
         std::ostream& operator<<(std::ostream& os, const speed_t<base_type>& val) {
             auto val_raw = val.convert_copy(1.0, 0.0);
-            return os << val_raw.val() << " ";
+            return os << val_raw.val() << " metre per second";
         }
 
 
@@ -1713,7 +1713,7 @@ namespace sakurajin {
         template <std::floating_point base_type>
         std::ostream& operator<<(std::ostream& os, const acceleration_t<base_type>& val) {
             auto val_raw = val.convert_copy(1.0, 0.0);
-            return os << val_raw.val() << " ";
+            return os << val_raw.val() << " metre per second^2";
         }
 
 
@@ -1866,7 +1866,7 @@ namespace sakurajin {
         template <std::floating_point base_type>
         std::ostream& operator<<(std::ostream& os, const area_t<base_type>& val) {
             auto val_raw = val.convert_copy(1.0, 0.0);
-            return os << val_raw.val() << " ";
+            return os << val_raw.val() << " metre^2";
         }
 
 
@@ -2019,7 +2019,7 @@ namespace sakurajin {
         template <std::floating_point base_type>
         std::ostream& operator<<(std::ostream& os, const force_t<base_type>& val) {
             auto val_raw = val.convert_copy(1.0, 0.0);
-            return os << val_raw.val() << " ";
+            return os << val_raw.val() << " Newton";
         }
 
 
@@ -2173,7 +2173,7 @@ namespace sakurajin {
         template <std::floating_point base_type>
         std::ostream& operator<<(std::ostream& os, const momentum_t<base_type>& val) {
             auto val_raw = val.convert_copy(1.0, 0.0);
-            return os << val_raw.val() << " ";
+            return os << val_raw.val() << " kilogram-meter per second";
         }
 
 
@@ -2185,7 +2185,7 @@ namespace sakurajin {
         auto operator*(const time_si_t<base_type>& val, const speed_t<base_type>& other) {
             auto _v1 = val.convert_offset(0);
             auto _v2 = other.convert_offset(0);
-            return sakurajin::unit_system::length_t<base_type>{_v1.val() * _v2.val(), _v1.mult() / _v2.mult()};
+            return sakurajin::unit_system::length_t<base_type>{_v1.val() * _v2.val(), _v1.mult() * _v2.mult()};
         }
 
         template <std::floating_point base_type>
@@ -2193,7 +2193,7 @@ namespace sakurajin {
         auto operator*(const time_si_t<base_type>& val, const acceleration_t<base_type>& other) {
             auto _v1 = val.convert_offset(0);
             auto _v2 = other.convert_offset(0);
-            return sakurajin::unit_system::speed_t<base_type>{_v1.val() * _v2.val(), _v1.mult() / _v2.mult()};
+            return sakurajin::unit_system::speed_t<base_type>{_v1.val() * _v2.val(), _v1.mult() * _v2.mult()};
         }
 
         template <std::floating_point base_type>
@@ -2201,7 +2201,7 @@ namespace sakurajin {
         auto operator*(const time_si_t<base_type>& val, const power_t<base_type>& other) {
             auto _v1 = val.convert_offset(0);
             auto _v2 = other.convert_offset(0);
-            return sakurajin::unit_system::energy_t<base_type>{_v1.val() * _v2.val(), _v1.mult() / _v2.mult()};
+            return sakurajin::unit_system::energy_t<base_type>{_v1.val() * _v2.val(), _v1.mult() * _v2.mult()};
         }
 
         template <std::floating_point base_type>
@@ -2209,7 +2209,7 @@ namespace sakurajin {
         auto operator*(const time_si_t<base_type>& val, const force_t<base_type>& other) {
             auto _v1 = val.convert_offset(0);
             auto _v2 = other.convert_offset(0);
-            return sakurajin::unit_system::momentum_t<base_type>{_v1.val() * _v2.val(), _v1.mult() / _v2.mult()};
+            return sakurajin::unit_system::momentum_t<base_type>{_v1.val() * _v2.val(), _v1.mult() * _v2.mult()};
         }
 
 
@@ -2235,7 +2235,7 @@ namespace sakurajin {
         auto operator*(const length_t<base_type>& val, const length_t<base_type>& other) {
             auto _v1 = val.convert_offset(0);
             auto _v2 = other.convert_offset(0);
-            return sakurajin::unit_system::area_t<base_type>{_v1.val() * _v2.val(), _v1.mult() / _v2.mult()};
+            return sakurajin::unit_system::area_t<base_type>{_v1.val() * _v2.val(), _v1.mult() * _v2.mult()};
         }
 
         template <std::floating_point base_type>
@@ -2243,7 +2243,7 @@ namespace sakurajin {
         auto operator*(const length_t<base_type>& val, const force_t<base_type>& other) {
             auto _v1 = val.convert_offset(0);
             auto _v2 = other.convert_offset(0);
-            return sakurajin::unit_system::energy_t<base_type>{_v1.val() * _v2.val(), _v1.mult() / _v2.mult()};
+            return sakurajin::unit_system::energy_t<base_type>{_v1.val() * _v2.val(), _v1.mult() * _v2.mult()};
         }
 
 
@@ -2259,7 +2259,7 @@ namespace sakurajin {
         auto operator*(const mass_t<base_type>& val, const acceleration_t<base_type>& other) {
             auto _v1 = val.convert_offset(0);
             auto _v2 = other.convert_offset(0);
-            return sakurajin::unit_system::force_t<base_type>{_v1.val() * _v2.val(), _v1.mult() / _v2.mult()};
+            return sakurajin::unit_system::force_t<base_type>{_v1.val() * _v2.val(), _v1.mult() * _v2.mult()};
         }
 
         template <std::floating_point base_type>
@@ -2267,7 +2267,7 @@ namespace sakurajin {
         auto operator*(const mass_t<base_type>& val, const speed_t<base_type>& other) {
             auto _v1 = val.convert_offset(0);
             auto _v2 = other.convert_offset(0);
-            return sakurajin::unit_system::momentum_t<base_type>{_v1.val() * _v2.val(), _v1.mult() / _v2.mult()};
+            return sakurajin::unit_system::momentum_t<base_type>{_v1.val() * _v2.val(), _v1.mult() * _v2.mult()};
         }
 
 
@@ -2342,7 +2342,7 @@ namespace sakurajin {
         auto operator*(const power_t<base_type>& val, const time_si_t<base_type>& other) {
             auto _v1 = val.convert_offset(0);
             auto _v2 = other.convert_offset(0);
-            return sakurajin::unit_system::energy_t<base_type>{_v1.val() * _v2.val(), _v1.mult() / _v2.mult()};
+            return sakurajin::unit_system::energy_t<base_type>{_v1.val() * _v2.val(), _v1.mult() * _v2.mult()};
         }
 
 
@@ -2368,7 +2368,7 @@ namespace sakurajin {
         auto operator*(const speed_t<base_type>& val, const time_si_t<base_type>& other) {
             auto _v1 = val.convert_offset(0);
             auto _v2 = other.convert_offset(0);
-            return sakurajin::unit_system::length_t<base_type>{_v1.val() * _v2.val(), _v1.mult() / _v2.mult()};
+            return sakurajin::unit_system::length_t<base_type>{_v1.val() * _v2.val(), _v1.mult() * _v2.mult()};
         }
 
         template <std::floating_point base_type>
@@ -2376,7 +2376,7 @@ namespace sakurajin {
         auto operator*(const speed_t<base_type>& val, const momentum_t<base_type>& other) {
             auto _v1 = val.convert_offset(0);
             auto _v2 = other.convert_offset(0);
-            return sakurajin::unit_system::energy_t<base_type>{_v1.val() * _v2.val(), _v1.mult() / _v2.mult()};
+            return sakurajin::unit_system::energy_t<base_type>{_v1.val() * _v2.val(), _v1.mult() * _v2.mult()};
         }
 
         template <std::floating_point base_type>
@@ -2384,7 +2384,7 @@ namespace sakurajin {
         auto operator*(const speed_t<base_type>& val, const mass_t<base_type>& other) {
             auto _v1 = val.convert_offset(0);
             auto _v2 = other.convert_offset(0);
-            return sakurajin::unit_system::momentum_t<base_type>{_v1.val() * _v2.val(), _v1.mult() / _v2.mult()};
+            return sakurajin::unit_system::momentum_t<base_type>{_v1.val() * _v2.val(), _v1.mult() * _v2.mult()};
         }
 
         template <std::floating_point base_type>
@@ -2392,7 +2392,7 @@ namespace sakurajin {
         auto operator*(const speed_t<base_type>& val, const force_t<base_type>& other) {
             auto _v1 = val.convert_offset(0);
             auto _v2 = other.convert_offset(0);
-            return sakurajin::unit_system::power_t<base_type>{_v1.val() * _v2.val(), _v1.mult() / _v2.mult()};
+            return sakurajin::unit_system::power_t<base_type>{_v1.val() * _v2.val(), _v1.mult() * _v2.mult()};
         }
 
 
@@ -2401,7 +2401,7 @@ namespace sakurajin {
         auto operator*(const acceleration_t<base_type>& val, const time_si_t<base_type>& other) {
             auto _v1 = val.convert_offset(0);
             auto _v2 = other.convert_offset(0);
-            return sakurajin::unit_system::speed_t<base_type>{_v1.val() * _v2.val(), _v1.mult() / _v2.mult()};
+            return sakurajin::unit_system::speed_t<base_type>{_v1.val() * _v2.val(), _v1.mult() * _v2.mult()};
         }
 
         template <std::floating_point base_type>
@@ -2409,7 +2409,7 @@ namespace sakurajin {
         auto operator*(const acceleration_t<base_type>& val, const mass_t<base_type>& other) {
             auto _v1 = val.convert_offset(0);
             auto _v2 = other.convert_offset(0);
-            return sakurajin::unit_system::force_t<base_type>{_v1.val() * _v2.val(), _v1.mult() / _v2.mult()};
+            return sakurajin::unit_system::force_t<base_type>{_v1.val() * _v2.val(), _v1.mult() * _v2.mult()};
         }
 
 
@@ -2451,7 +2451,7 @@ namespace sakurajin {
         auto operator*(const force_t<base_type>& val, const length_t<base_type>& other) {
             auto _v1 = val.convert_offset(0);
             auto _v2 = other.convert_offset(0);
-            return sakurajin::unit_system::energy_t<base_type>{_v1.val() * _v2.val(), _v1.mult() / _v2.mult()};
+            return sakurajin::unit_system::energy_t<base_type>{_v1.val() * _v2.val(), _v1.mult() * _v2.mult()};
         }
 
         template <std::floating_point base_type>
@@ -2459,7 +2459,7 @@ namespace sakurajin {
         auto operator*(const force_t<base_type>& val, const time_si_t<base_type>& other) {
             auto _v1 = val.convert_offset(0);
             auto _v2 = other.convert_offset(0);
-            return sakurajin::unit_system::momentum_t<base_type>{_v1.val() * _v2.val(), _v1.mult() / _v2.mult()};
+            return sakurajin::unit_system::momentum_t<base_type>{_v1.val() * _v2.val(), _v1.mult() * _v2.mult()};
         }
 
         template <std::floating_point base_type>
@@ -2467,7 +2467,7 @@ namespace sakurajin {
         auto operator*(const force_t<base_type>& val, const speed_t<base_type>& other) {
             auto _v1 = val.convert_offset(0);
             auto _v2 = other.convert_offset(0);
-            return sakurajin::unit_system::power_t<base_type>{_v1.val() * _v2.val(), _v1.mult() / _v2.mult()};
+            return sakurajin::unit_system::power_t<base_type>{_v1.val() * _v2.val(), _v1.mult() * _v2.mult()};
         }
 
 
@@ -2509,7 +2509,7 @@ namespace sakurajin {
         auto operator*(const momentum_t<base_type>& val, const speed_t<base_type>& other) {
             auto _v1 = val.convert_offset(0);
             auto _v2 = other.convert_offset(0);
-            return sakurajin::unit_system::energy_t<base_type>{_v1.val() * _v2.val(), _v1.mult() / _v2.mult()};
+            return sakurajin::unit_system::energy_t<base_type>{_v1.val() * _v2.val(), _v1.mult() * _v2.mult()};
         }
 
 

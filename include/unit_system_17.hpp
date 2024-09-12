@@ -1796,7 +1796,7 @@ namespace sakurajin {
 
             const long double avogadro_constant = 6.02214076e+23;
 
-            const long double waterFreezingPoint = 273.15;
+            const long double water_freezing_point = 273.15;
 
         } // namespace constants
     } // namespace unit_system
